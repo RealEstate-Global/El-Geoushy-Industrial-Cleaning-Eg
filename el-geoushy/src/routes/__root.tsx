@@ -113,27 +113,30 @@ function RootComponent() {
       <ThemeProvider>
         <LocaleProvider>
           <MotionConfig reducedMotion="user">
-            <a
-              href="#main"
-              className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:right-2 focus:z-50 focus:rounded focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
-            >
-              {d.common.skipToContent}
-            </a>
-            <AnnouncementBar />
-            <Header />
-            <motion.main
-              id="main"
-              key={pathname}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.35 }}
-            >
-              <Outlet />
-            </motion.main>
-            <Footer />
-            <ScrollToTopButton />
-            <FloatingWhatsApp />
-            <Toaster position="top-center" richColors />
+            <div className="flex min-h-svh flex-col">
+              <a
+                href="#main"
+                className="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:right-2 focus:z-50 focus:rounded focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground"
+              >
+                {d.common.skipToContent}
+              </a>
+              <AnnouncementBar />
+              <Header />
+              <motion.main
+                id="main"
+                key={pathname}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.35 }}
+                className="flex-1"
+              >
+                <Outlet />
+              </motion.main>
+              <Footer />
+              <ScrollToTopButton />
+              <FloatingWhatsApp />
+              <Toaster position="top-center" richColors />
+            </div>
           </MotionConfig>
         </LocaleProvider>
       </ThemeProvider>
