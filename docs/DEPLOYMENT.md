@@ -2,6 +2,8 @@
 
 Both apps are plain, portable builds. There is no hosted-platform wrapper.
 
+For **versioned GitHub Releases** (tags, zips, changelog body), see [RELEASES.md](RELEASES.md).
+
 ## Frontend
 
 Build from `el-geoushy/`:
@@ -32,12 +34,21 @@ VITE_ERROR_REPORT_ENDPOINT=https://api.example.com/api/client-errors pnpm run bu
 Serve the app behind TLS. If you serve the API from the same origin (for example
 under `/api`), no CORS configuration is needed.
 
+Release artifacts ship as `frontend-<version>.zip` containing the `.output` tree.
+
 ## Backend
 
 Publish from `backend/`:
 
 ```sh
 dotnet publish src/ElGeoushy.Api/ElGeoushy.Api.csproj -c Release -o ./publish
+```
+
+The shared SemVer from `Directory.Build.props` is embedded in the assembly.
+Override at publish time if needed:
+
+```sh
+dotnet publish src/ElGeoushy.Api/ElGeoushy.Api.csproj -c Release -o ./publish /p:Version=0.1.0
 ```
 
 Run:
@@ -58,8 +69,13 @@ Production checklist:
 - Protect `POST /api/products` with authentication before exposing it.
 - Do not serve the `.db` file or `appsettings.Development.json`.
 
+Release artifacts ship as `backend-<version>.zip` containing the publish output.
+
 ## CI
 
 `.github/workflows/frontend.yml` and `.github/workflows/backend.yml` run on
 pushes and pull requests that touch each folder. They run typecheck, lint, tests,
 and builds. Keep both green.
+
+`.github/workflows/release.yml` runs on `v*` tags and publishes GitHub Release
+assets. See [RELEASES.md](RELEASES.md).
