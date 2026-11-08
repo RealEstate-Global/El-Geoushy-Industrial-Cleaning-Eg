@@ -1,0 +1,26 @@
+/** Shared labels used across features. */
+export const common = {
+  brandName: "الجيوشي",
+  brandSuffix: "للمنظفات الصناعية",
+  nav: {
+    home: "الرئيسية",
+    products: "المنتجات",
+    categories: "الأقسام",
+    about: "من نحن",
+    faq: "الأسئلة الشائعة",
+    contact: "تواصل معنا",
+  },
+  legalNav: { privacy: "سياسة الخصوصية", terms: "الشروط والأحكام" },
+  home: "الرئيسية",
+  viewDetails: "عرض التفاصيل",
+  browseCategory: "تصفح القسم",
+  browseProducts: "تصفح المنتجات",
+  contactUs: "تواصل معنا",
+  backToProducts: "رجوع للمنتجات",
+  allCategories: "كل الأقسام",
+  clearFilters: "مسح الفلاتر",
+  demoBadge: "بيانات تجريبية",
+  backHome: "العودة للرئيسية",
+  skipToContent: "تخطي إلى المحتوى",
+  whatsapp: { label: "استفسر عبر واتساب", fallback: "أرسل استفسارك" },
+};

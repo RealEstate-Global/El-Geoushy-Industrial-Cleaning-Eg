@@ -1,0 +1,255 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Cairo", system-ui, sans-serif;
+  --font-display: "Cairo", system-ui, sans-serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-navy: var(--navy);
+  --color-navy-foreground: var(--navy-foreground);
+  --color-fresh: var(--fresh);
+  --color-fresh-foreground: var(--fresh-foreground);
+  --color-mint: var(--mint);
+  --color-warning: var(--warning);
+  --color-on-brand: var(--on-brand);
+  --color-ring-offset-background: var(--background);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Brand: navy #123B5D, blue #1677B8, green #24A66A, mint #E8F7EF, gray #F4F7F8, text #172B3A */
+:root {
+  --radius: 0.875rem;
+  --background: oklch(0.975 0.004 200);
+  --foreground: oklch(0.27 0.04 240);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.27 0.04 240);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.27 0.04 240);
+  --primary: oklch(0.54 0.13 245);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.965 0.025 160);
+  --secondary-foreground: oklch(0.33 0.07 245);
+  --muted: oklch(0.955 0.006 210);
+  --muted-foreground: oklch(0.48 0.03 240);
+  --accent: oklch(0.965 0.025 160);
+  --accent-foreground: oklch(0.36 0.08 160);
+  --destructive: oklch(0.577 0.22 27);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.91 0.01 220);
+  --input: oklch(0.89 0.012 220);
+  --ring: oklch(0.54 0.13 245);
+  --navy: oklch(0.33 0.07 245);
+  --navy-foreground: oklch(0.98 0.01 200);
+  --fresh: oklch(0.63 0.14 155);
+  --fresh-foreground: oklch(0.99 0 0);
+  --mint: oklch(0.965 0.025 160);
+  --warning: oklch(0.75 0.15 75);
+  --on-brand: oklch(0.99 0 0);
+  --gradient-brand: linear-gradient(135deg, var(--primary), var(--fresh));
+  --gradient-hero:
+    radial-gradient(
+      ellipse at 80% 0%,
+      color-mix(in oklab, var(--fresh) 18%, transparent),
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 0% 100%,
+      color-mix(in oklab, var(--primary) 16%, transparent),
+      transparent 55%
+    );
+  --shadow-soft:
+    0 1px 2px color-mix(in oklab, var(--navy) 6%, transparent),
+    0 8px 24px -12px color-mix(in oklab, var(--navy) 18%, transparent);
+  --shadow-lift: 0 24px 48px -20px color-mix(in oklab, var(--primary) 35%, transparent);
+  --chart-1: oklch(0.54 0.13 245);
+  --chart-2: oklch(0.63 0.14 155);
+  --chart-3: oklch(0.33 0.07 245);
+  --chart-4: oklch(0.75 0.15 75);
+  --chart-5: oklch(0.6 0.1 200);
+  --sidebar: oklch(0.98 0.003 247);
+  --sidebar-foreground: oklch(0.27 0.04 240);
+  --sidebar-primary: oklch(0.54 0.13 245);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.965 0.025 160);
+  --sidebar-accent-foreground: oklch(0.33 0.07 245);
+  --sidebar-border: oklch(0.91 0.01 220);
+  --sidebar-ring: oklch(0.54 0.13 245);
+}
+
+.dark {
+  --background: oklch(0.19 0.03 245);
+  --foreground: oklch(0.95 0.01 220);
+  --card: oklch(0.235 0.035 245);
+  --card-foreground: oklch(0.95 0.01 220);
+  --popover: oklch(0.235 0.035 245);
+  --popover-foreground: oklch(0.95 0.01 220);
+  --primary: oklch(0.68 0.13 240);
+  --primary-foreground: oklch(0.17 0.03 245);
+  --secondary: oklch(0.29 0.04 200);
+  --secondary-foreground: oklch(0.95 0.01 220);
+  --muted: oklch(0.27 0.03 245);
+  --muted-foreground: oklch(0.74 0.025 230);
+  --accent: oklch(0.3 0.05 165);
+  --accent-foreground: oklch(0.9 0.06 160);
+  --destructive: oklch(0.68 0.19 22);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(1 0 0 / 11%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.68 0.13 240);
+  --navy: oklch(0.14 0.03 245);
+  --navy-foreground: oklch(0.95 0.01 220);
+  --fresh: oklch(0.7 0.14 155);
+  --fresh-foreground: oklch(0.17 0.03 245);
+  --mint: oklch(0.27 0.04 170);
+  --gradient-brand: linear-gradient(135deg, oklch(0.45 0.12 245), oklch(0.48 0.11 160));
+  --shadow-soft: 0 1px 2px oklch(0 0 0 / 30%), 0 8px 24px -12px oklch(0 0 0 / 50%);
+  --shadow-lift: 0 24px 48px -20px oklch(0 0 0 / 60%);
+  --sidebar: oklch(0.235 0.035 245);
+  --sidebar-foreground: oklch(0.95 0.01 220);
+  --sidebar-primary: oklch(0.68 0.13 240);
+  --sidebar-primary-foreground: oklch(0.17 0.03 245);
+  --sidebar-accent: oklch(0.29 0.04 200);
+  --sidebar-accent-foreground: oklch(0.95 0.01 220);
+  --sidebar-border: oklch(1 0 0 / 11%);
+  --sidebar-ring: oklch(0.68 0.13 240);
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+@utility bg-gradient-brand {
+  background-image: var(--gradient-brand);
+}
+@utility bg-gradient-hero {
+  background-image: var(--gradient-hero);
+}
+@utility shadow-soft {
+  box-shadow: var(--shadow-soft);
+}
+@utility shadow-lift {
+  box-shadow: var(--shadow-lift);
+}
+@utility text-gradient-brand {
+  background-image: var(--gradient-brand);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+@utility container-page {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 80rem;
+  padding-inline: 1rem;
+  @media (min-width: 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+  html {
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--primary) 70%, var(--fresh)) var(--background);
+  }
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--background);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--primary), var(--fresh));
+    border-radius: 999px;
+    border: 2px solid var(--background);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      transition-duration: 0.01ms !important;
+      animation-duration: 0.01ms !important;
+    }
+  }
+}
+
+/* Keep the scrollbar visible when any dropdown/dialog opens (Radix scroll-lock hides it and shifts layout). */
+html body[data-scroll-locked] {
+  overflow: visible !important;
+  overflow-x: hidden !important;
+  margin-right: 0 !important;
+  margin-left: 0 !important;
+  padding-right: 0 !important;
+}

@@ -1,0 +1,35 @@
+# Single-package workspace: keeps pnpm settings in one place for this standalone app.
+packages: []
+
+# Build scripts are only allowed for packages explicitly listed here.
+onlyBuiltDependencies:
+  - esbuild
+
+# Force a single rolldown version across the dependency tree.
+overrides:
+  rolldown: 1.2.1
+
+# Supply-chain guard: only install packages published at least 1 day ago.
+minimumReleaseAge: 86400
+# The app pins newer TanStack Start/Router and motion releases; let them through.
+minimumReleaseAgeExclude:
+  - "@tanstack/history"
+  - "@tanstack/react-router"
+  - "@tanstack/react-start"
+  - "@tanstack/react-start-client"
+  - "@tanstack/react-start-rsc"
+  - "@tanstack/react-start-server"
+  - "@tanstack/react-store"
+  - "@tanstack/router-core"
+  - "@tanstack/router-generator"
+  - "@tanstack/router-plugin"
+  - "@tanstack/router-utils"
+  - "@tanstack/start-client-core"
+  - "@tanstack/start-plugin-core"
+  - "@tanstack/start-server-core"
+  - "@tanstack/start-storage-context"
+  - "@tanstack/store"
+  - framer-motion
+  - motion
+  - motion-dom
+  - motion-utils

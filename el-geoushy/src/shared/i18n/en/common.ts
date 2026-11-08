@@ -1,0 +1,26 @@
+/** Shared labels used across features. */
+export const common = {
+  brandName: "El Geuishi",
+  brandSuffix: "Industrial Detergents",
+  nav: {
+    home: "Home",
+    products: "Products",
+    categories: "Categories",
+    about: "About",
+    faq: "FAQ",
+    contact: "Contact us",
+  },
+  legalNav: { privacy: "Privacy Policy", terms: "Terms & Conditions" },
+  home: "Home",
+  viewDetails: "View details",
+  browseCategory: "Browse this category",
+  browseProducts: "Browse products",
+  contactUs: "Contact us",
+  backToProducts: "Back to products",
+  allCategories: "All categories",
+  clearFilters: "Clear filters",
+  demoBadge: "Demo data",
+  backHome: "Back to home",
+  skipToContent: "Skip to content",
+  whatsapp: { label: "Ask via WhatsApp", fallback: "Send your inquiry" },
+};
