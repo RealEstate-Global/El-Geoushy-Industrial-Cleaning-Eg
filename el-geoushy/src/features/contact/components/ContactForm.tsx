@@ -4,6 +4,7 @@ import { toast } from "sonner";
 import { buttonVariants } from "@/shared/ui/button";
 import { Send } from "lucide-react";
 import { useDict } from "@/shared/i18n/LocaleProvider";
+import { submitContactMessage } from "@/features/contact/lib/api";
 import {
   contactSchema,
   type ContactErrorCode,
@@ -58,11 +59,16 @@ export function ContactForm() {
     resolver: zodResolver(contactSchema),
     defaultValues: { name: "", phone: "", email: "", subject: "", message: "" },
   });
-  const onSubmit = async (_v: ContactFormValues) => {
-    // TODO: connect to the backend contact endpoint in `backend/`. No data is sent yet.
-    await new Promise((r) => setTimeout(r, 600));
-    toast.success(f.toast.successTitle, { description: f.toast.successText });
-    reset();
+  const onSubmit = async (values: ContactFormValues) => {
+    try {
+      await submitContactMessage(values);
+      toast.success(f.toast.successTitle, { description: f.toast.successText });
+      reset();
+    } catch (error) {
+      toast.error(f.toast.errorTitle, {
+        description: error instanceof Error ? error.message : f.toast.errorText,
+      });
+    }
   };
   const a = (k: keyof ContactFormValues) => ({
     "aria-invalid": !!errors[k],

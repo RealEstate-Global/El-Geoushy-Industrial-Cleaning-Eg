@@ -14,6 +14,15 @@ public static class ClientErrorEndpoints
             ClientErrorRequest request,
             ILogger<ClientErrorSink> logger) =>
         {
+            if (string.IsNullOrWhiteSpace(request.Message) || request.Message.Length > 4000 ||
+                request.Stack?.Length > 12000 || request.Route?.Length > 2048 || request.Mechanism?.Length > 128)
+            {
+                return Results.ValidationProblem(new Dictionary<string, string[]>
+                {
+                    ["request"] = ["Client error fields exceed the allowed limits."],
+                });
+            }
+
             logger.LogWarning(
                 "Client error on {Route} ({Mechanism}): {Message}{NewLine}{Stack}",
                 request.Route ?? "unknown",
@@ -25,7 +34,8 @@ public static class ClientErrorEndpoints
             return Results.Accepted();
         })
         .WithTags("Diagnostics")
-        .WithName("ReportClientError");
+        .WithName("ReportClientError")
+        .RequireRateLimiting("client-errors");
 
         return app;
     }

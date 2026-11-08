@@ -3,6 +3,8 @@ using ElGeoushy.Api.Middleware;
 using ElGeoushy.Application;
 using ElGeoushy.Infrastructure;
 using ElGeoushy.Infrastructure.Persistence;
+using Microsoft.AspNetCore.RateLimiting;
+using System.Threading.RateLimiting;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +14,29 @@ builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddProblemDetails();
 builder.Services.AddExceptionHandler<DomainExceptionHandler>();
 builder.Services.AddOpenApi();
+builder.WebHost.ConfigureKestrel(options => options.Limits.MaxRequestBodySize = 64 * 1024);
+builder.Services.AddRateLimiter(options =>
+{
+    options.RejectionStatusCode = StatusCodes.Status429TooManyRequests;
+    options.AddPolicy("contact", context => RateLimitPartition.GetFixedWindowLimiter(
+        context.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+        _ => new FixedWindowRateLimiterOptions
+        {
+            PermitLimit = 5,
+            Window = TimeSpan.FromMinutes(10),
+            QueueLimit = 0,
+            AutoReplenishment = true,
+        }));
+    options.AddPolicy("client-errors", context => RateLimitPartition.GetFixedWindowLimiter(
+        context.Connection.RemoteIpAddress?.ToString() ?? "unknown",
+        _ => new FixedWindowRateLimiterOptions
+        {
+            PermitLimit = 30,
+            Window = TimeSpan.FromMinutes(1),
+            QueueLimit = 0,
+            AutoReplenishment = true,
+        }));
+});
 
 var allowedOrigins = builder.Configuration
     .GetSection("Cors:AllowedOrigins")
@@ -34,6 +59,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseExceptionHandler();
 app.UseCors("Frontend");
+app.UseRateLimiter();
 
 app.MapGet("/", () => Results.Ok(new
 {
@@ -44,11 +70,11 @@ app.MapGet("/", () => Results.Ok(new
 
 app.MapHealthEndpoints();
 app.MapCategoryEndpoints();
-app.MapProductEndpoints();
+app.MapProductEndpoints(allowProductCreation: app.Environment.IsDevelopment());
 app.MapContactEndpoints();
 app.MapClientErrorEndpoints();
 
-await DbInitializer.InitializeAsync(app.Services);
+await DbInitializer.InitializeAsync(app.Services, seedDemoCatalog: app.Environment.IsDevelopment());
 
 app.Run();
 

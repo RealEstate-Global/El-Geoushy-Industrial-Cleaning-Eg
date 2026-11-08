@@ -4,4 +4,5 @@ public sealed record SubmitContactMessageRequest(
     string Name,
     string Phone,
     string? Email,
+    string Subject,
     string Message);
