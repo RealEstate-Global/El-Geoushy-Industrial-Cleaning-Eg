@@ -23,6 +23,8 @@ export const contact = {
     toast: {
       successTitle: "We received your message",
       successText: "Thanks for reaching out, we'll get back to you as soon as possible.",
+      errorTitle: "We couldn't send your message",
+      errorText: "Please try again in a moment.",
       invalid: "Please check the required fields",
     },
   },

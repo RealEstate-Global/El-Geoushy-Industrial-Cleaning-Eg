@@ -8,6 +8,7 @@ public sealed record SubmitContactMessageCommand(
     string Name,
     string Phone,
     string? Email,
+    string Subject,
     string Message);
 
 public sealed class SubmitContactMessageCommandHandler(IApplicationDbContext db)
@@ -26,6 +27,11 @@ public sealed class SubmitContactMessageCommandHandler(IApplicationDbContext db)
             throw new DomainException("Phone is required.");
         }
 
+        if (string.IsNullOrWhiteSpace(command.Subject))
+        {
+            throw new DomainException("Subject is required.");
+        }
+
         if (string.IsNullOrWhiteSpace(command.Message))
         {
             throw new DomainException("Message is required.");
@@ -36,6 +42,7 @@ public sealed class SubmitContactMessageCommandHandler(IApplicationDbContext db)
             Name = command.Name.Trim(),
             Phone = command.Phone.Trim(),
             Email = string.IsNullOrWhiteSpace(command.Email) ? null : command.Email.Trim(),
+            Subject = command.Subject.Trim(),
             Message = command.Message.Trim(),
         };
 

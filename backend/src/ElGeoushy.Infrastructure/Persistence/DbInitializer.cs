@@ -5,19 +5,24 @@ using Microsoft.Extensions.DependencyInjection;
 namespace ElGeoushy.Infrastructure.Persistence;
 
 /// <summary>
-/// Creates the local SQLite database on first run and seeds the demo catalog.
-/// Replace with EF Core migrations when the schema is finalized.
+/// Applies EF Core migrations and seeds the demo catalog in Development.
 /// </summary>
 public static class DbInitializer
 {
     public static async Task InitializeAsync(
         IServiceProvider serviceProvider,
+        bool seedDemoCatalog,
         CancellationToken cancellationToken = default)
     {
         using var scope = serviceProvider.CreateScope();
         var db = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
 
-        await db.Database.EnsureCreatedAsync(cancellationToken);
+        await db.Database.MigrateAsync(cancellationToken);
+
+        if (!seedDemoCatalog)
+        {
+            return;
+        }
 
         if (await db.Categories.AnyAsync(cancellationToken))
         {
