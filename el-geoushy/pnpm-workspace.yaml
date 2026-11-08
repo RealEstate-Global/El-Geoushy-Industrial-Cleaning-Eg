@@ -33,3 +33,20 @@ minimumReleaseAgeExclude:
   - motion
   - motion-dom
   - motion-utils
+  # The pinned pnpm release itself must be allowed through the guard.
+  - pnpm@12.14.0
+  - "@pnpm/exe"
+  - "@pnpm/exe.android-arm64"
+  - "@pnpm/exe.android-x64"
+  - "@pnpm/exe.darwin-arm64"
+  - "@pnpm/exe.darwin-x64"
+  - "@pnpm/exe.freebsd-x64"
+  - "@pnpm/exe.linux-arm64-musl"
+  - "@pnpm/exe.linux-arm64"
+  - "@pnpm/exe.linux-ppc64"
+  - "@pnpm/exe.linux-riscv64"
+  - "@pnpm/exe.linux-s390x"
+  - "@pnpm/exe.linux-x64"
+  - "@pnpm/exe.linux-x64-musl"
+  - "@pnpm/exe.win32-arm64"
+  - "@pnpm/exe.win32-x64"

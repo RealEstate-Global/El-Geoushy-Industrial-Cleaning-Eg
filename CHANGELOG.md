@@ -1,5 +1,31 @@
 # Changelog
 
+## 2026-11-08 — Internationalization + animated 404 + release automation
+
+### Added
+
+- i18n system with Arabic (default, RTL) and English locales under
+  `el-geoushy/src/shared/i18n/{en,ar}/` — one file per feature domain
+  (common, header, footer, home, about, catalog, faq, contact, legal, errors, cta).
+- `LocaleProvider` with `useDict`/`useLocale`, localStorage-persisted locale,
+  `localeInitScript` for SSR-safe `<html lang dir>` sync, and an EN/عربي language
+  toggle in the header and mobile menu.
+- i18n parity test (`src/test/i18n.test.ts`) locking the EN/AR key shapes.
+
+### Changed
+
+- Animated 404 page (`NotFoundPage`) — gradient text, floating glow, spring
+  entrance, quick links — wired as the router `notFoundComponent`; root error
+  boundary is now localized.
+- Home/about/contact pages consume dictionaries via `useDict`; SEO helper and
+  nav/business names are locale-aware.
+
+### Added
+
+- `.github/workflows/release.yml` — automatic GitHub Release on `v*` tags,
+  publishing frontend (`el-geoushy/.output`) and backend (`backend/artifacts`)
+  artifacts.
+
 ## 2026-11-08 — Frontend feature-based restructure + pnpm
 
 ### Changed
