@@ -15,9 +15,7 @@ export function NotFoundPage() {
   ] as const;
 
   return (
-    <section
-      className="bg-gradient-hero relative min-h-full -mb-24 overflow-hidden"
-    >
+    <section className="bg-gradient-hero relative min-h-full -mb-24 overflow-hidden">
       {/* Ambient blobs */}
       <motion.div
         aria-hidden
