@@ -3,7 +3,17 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Menu, X, ArrowUpLeft, Star, Facebook, MessageCircle, Globe2 } from "lucide-react";
+import {
+  Menu,
+  X,
+  ArrowUpLeft,
+  Star,
+  Facebook,
+  MessageCircle,
+  Globe2,
+  Moon,
+  Sun,
+} from "lucide-react";
 import { useDemo } from "./DemoProvider";
 import { translate, translateHome } from "@/features/i18n";
 import { getVerifiedWhatsAppUrl } from "@/lib/whatsapp";
@@ -11,7 +21,7 @@ import { getVerifiedWhatsAppUrl } from "@/lib/whatsapp";
 const paths = ["/", "/product", "/uses", "/how-to-use", "/offers", "/faq", "/contact"];
 export function StoreShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
-  const { locale, setLocale, data } = useDemo();
+  const { locale, setLocale, data, theme, toggleTheme } = useDemo();
   const c = translate(locale);
   const h = translateHome(locale);
   const [open, setOpen] = useState(false);
@@ -50,6 +60,21 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
           ))}
         </nav>
         <div className="header-actions">
+          <button
+            className="theme-toggle"
+            type="button"
+            aria-label={theme === "dark" ? c.lightMode : c.darkMode}
+            aria-pressed={theme === "dark"}
+            title={theme === "dark" ? c.lightMode : c.darkMode}
+            onClick={(event) => {
+              const bounds = event.currentTarget.getBoundingClientRect();
+              toggleTheme({ x: bounds.left + bounds.width / 2, y: bounds.top + bounds.height / 2 });
+            }}
+          >
+            <span key={theme} className="theme-icon" aria-hidden="true">
+              {theme === "dark" ? <Sun size={17} /> : <Moon size={17} />}
+            </span>
+          </button>
           <button
             className="language-button"
             onClick={() => setLocale(locale === "ar" ? "en" : "ar")}

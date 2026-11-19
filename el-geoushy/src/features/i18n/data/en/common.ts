@@ -23,6 +23,8 @@ export const common = {
   useSteps: ["Spray as directed on the bottle", "Wait 30 seconds", "Wipe with a dry cloth"],
   navToggle: "Open menu",
   language: "العربية",
+  darkMode: "Switch to dark mode",
+  lightMode: "Switch to light mode",
   productDetails: "Product details",
   seeOffer: "Offer details",
   allFaq: "All FAQs",

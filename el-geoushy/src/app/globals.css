@@ -1,15 +1,27 @@
 @import "tailwindcss";
 :root {
-  --ink: #201b27;
-  --muted: #746d7b;
-  --purple: #7043a1;
-  --purple-dark: #4d286f;
-  --lavender: #f2edf8;
-  --line: #e9e4ec;
+  color-scheme: light;
+  --ink: #172b3a;
+  --muted: #657482;
+  --purple: #1677b8;
+  --purple-dark: #123b5d;
+  --lavender: #e8f7ef;
+  --line: #e2e9ed;
   --paper: #fff;
-  --soft: #faf8fc;
+  --soft: #f4f7f8;
   --font-ar: "Noto Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif;
   --font-latin: Inter, Arial, sans-serif;
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --ink: #e7f0f6;
+  --muted: #a5b7c4;
+  --purple: #53b5e8;
+  --purple-dark: #8ed7ae;
+  --lavender: #17364a;
+  --line: #2b4556;
+  --paper: #0e1b25;
+  --soft: #142633;
 }
 * {
   box-sizing: border-box;
@@ -46,12 +58,12 @@ a:focus-visible,
 input:focus-visible,
 textarea:focus-visible,
 summary:focus-visible {
-  outline: 3px solid #b692dd;
+  outline: 3px solid #72b9d9;
   outline-offset: 3px;
 }
 ::selection {
-  background: #e5d5f3;
-  color: var(--purple-dark);
+  background: #d7f0e1;
+  color: #123b5d;
 }
 .wrap {
   width: min(1160px, calc(100% - 48px));
@@ -63,8 +75,8 @@ summary:focus-visible {
   display: flex;
   align-items: center;
   gap: 11px;
-  background: #352540;
-  color: #eee7f4;
+  background: #123b5d;
+  color: #e6f4fb;
   font-size: 11px;
   letter-spacing: 0.03em;
 }
@@ -72,7 +84,7 @@ summary:focus-visible {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: #c8a7e5;
+  background: #8ed7ae;
 }
 .site-header {
   height: 82px;
@@ -85,7 +97,7 @@ summary:focus-visible {
   border-bottom: 1px solid var(--line);
   position: relative;
   z-index: 4;
-  background: white;
+  background: var(--paper);
 }
 .wordmark {
   display: flex;
@@ -103,17 +115,17 @@ summary:focus-visible {
   display: block;
   font-size: 8px;
   letter-spacing: 0.18em;
-  color: #81778a;
+  color: #71818c;
   margin-top: 6px;
 }
 .wordmark-mark {
   width: 37px;
   height: 37px;
-  border: 1px solid #d9c6e9;
+  border: 1px solid #c8e6d4;
   border-radius: 12px;
   display: grid;
   place-items: center;
-  background: #f7f2fb;
+  background: #e8f7ef;
   color: var(--purple);
   font: 700 21px Georgia;
 }
@@ -150,6 +162,50 @@ summary:focus-visible {
   font-size: 12px;
   color: #574d60;
   padding: 9px;
+}
+.theme-toggle {
+  width: 38px;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--purple-dark);
+  background: var(--soft);
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+.theme-toggle:hover {
+  transform: translateY(-2px) rotate(-8deg);
+  background: var(--lavender);
+  border-color: var(--purple);
+}
+.theme-toggle:active {
+  transform: scale(0.9);
+}
+.theme-icon {
+  display: grid;
+  place-items: center;
+  animation: theme-icon-in 0.36s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@media (max-width: 800px) {
+  .theme-toggle {
+    width: 35px;
+    height: 35px;
+  }
+}
+@keyframes theme-icon-in {
+  from {
+    opacity: 0;
+    transform: rotate(-60deg) scale(0.55);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0) scale(1);
+  }
 }
 .button {
   display: inline-flex;
@@ -277,12 +333,12 @@ summary:focus-visible {
   width: 370px;
   height: 370px;
   border-radius: 50%;
-  background: radial-gradient(circle, #f0e8f8 0, #f7f3fa 55%, #fff 72%);
+  background: radial-gradient(circle, #e1f2fa 0, #eff8f3 55%, #fff 74%);
   z-index: -2;
 }
 .stage-orbit {
   position: absolute;
-  border: 1px solid #e5d9ee;
+  border: 1px solid #cfe3ee;
   border-radius: 50%;
   transform: rotate(-28deg);
   z-index: -1;
@@ -295,12 +351,12 @@ summary:focus-visible {
   width: 400px;
   height: 158px;
   transform: rotate(26deg);
-  border-color: #eee7f3;
+  border-color: #dceddf;
 }
 .photo-placeholder-inner {
   width: min(320px, 76%);
   height: 285px;
-  border: 1px dashed #cdbbdc;
+  border: 1px dashed #bfdfcf;
   border-radius: 9px;
   background: #ffffffc9;
   display: flex;
@@ -338,12 +394,12 @@ summary:focus-visible {
 .stage-tag {
   position: absolute;
   padding: 9px 13px;
-  border: 1px solid #e7dfee;
+  border: 1px solid #d7e8df;
   background: #ffffffd9;
   backdrop-filter: blur(8px);
   border-radius: 6px;
   box-shadow: 0 8px 22px #4a2d5d0c;
-  color: #59456b;
+  color: #315b70;
   font: 700 10px var(--font-latin);
   letter-spacing: 0.06em;
   display: flex;
@@ -363,7 +419,7 @@ summary:focus-visible {
   top: 100px;
   left: 15%;
   font-size: 23px;
-  color: #c0a1d4;
+  color: #70bb90;
 }
 .quick-facts {
   display: grid;
@@ -386,7 +442,7 @@ summary:focus-visible {
 .use-number {
   font: 10px var(--font-latin);
   letter-spacing: 0.14em;
-  color: #9c8baa;
+  color: #7693a2;
 }
 .quick-facts b {
   font-size: 13px;
@@ -478,7 +534,7 @@ summary:focus-visible {
   position: absolute;
   top: 24px;
   left: 24px;
-  color: #a694b5;
+  color: #79a28d;
 }
 .steps-grid {
   display: grid;
@@ -519,7 +575,7 @@ summary:focus-visible {
 .safety-note {
   font-size: 12px;
   color: #756d7a;
-  border-inline-start: 2px solid #bea5d2;
+  border-inline-start: 2px solid #8ec5a4;
   padding: 4px 13px;
   margin: 22px 0 0;
 }
@@ -527,7 +583,7 @@ summary:focus-visible {
   position: relative;
   overflow: hidden;
   min-height: 210px;
-  background: linear-gradient(108deg, #3e2851, #6f438f);
+  background: linear-gradient(108deg, #123b5d, #1677b8 60%, #24a66a);
   border-radius: 10px;
   padding: 37px 45px;
   color: white;
@@ -697,7 +753,7 @@ summary:focus-visible {
   left: 8%;
   top: 20%;
   font: 240px/1 Georgia;
-  color: #f8f5fa;
+  color: #f0f7fa;
   z-index: -1;
 }
 .page-section {
@@ -749,7 +805,7 @@ summary:focus-visible {
   margin-block: 46px 90px;
 }
 .site-footer {
-  background: #211a29;
+  background: #102d42;
   color: #f4eff8;
   padding: 54px max(24px, calc((100vw - 1160px) / 2)) 21px;
 }
@@ -763,7 +819,7 @@ summary:focus-visible {
   color: white;
 }
 .footer-mark b {
-  color: #d9b9ef;
+  color: #8ed7ae;
 }
 .footer-top p {
   font-size: 11px;
@@ -785,7 +841,7 @@ summary:focus-visible {
   gap: 8px;
 }
 .footer-social svg {
-  color: #c6a4dc;
+  color: #8ed7ae;
 }
 .footer-bottom {
   border-top: 1px solid #ffffff21;
@@ -798,7 +854,7 @@ summary:focus-visible {
   font-size: 10px;
 }
 .footer-bottom a {
-  color: #d1b7e1;
+  color: #8ed7ae;
 }
 .contact-fab {
   position: fixed;
@@ -1679,4 +1735,117 @@ summary:focus-visible {
   .media-preview img {
     height: 120px;
   }
+}
+html,
+body,
+.store-shell {
+  background: var(--paper);
+  color: var(--ink);
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+.store-shell
+  :is(
+    .site-header,
+    .variant-chip,
+    .step-card,
+    .location,
+    .faq-item,
+    .photo-placeholder-inner,
+    .stage-tag,
+    .button-outline,
+    .main-nav
+  ) {
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    border-color 0.3s ease;
+}
+html[data-theme="dark"] .store-shell .topline {
+  background: #0a141c;
+  color: #b9d3e2;
+}
+html[data-theme="dark"] .store-shell .topline-dot {
+  background: #53b5e8;
+}
+html[data-theme="dark"] .store-shell .site-header,
+html[data-theme="dark"] .store-shell .main-nav {
+  background: #101f2a;
+}
+html[data-theme="dark"] .store-shell .wordmark small,
+html[data-theme="dark"] .store-shell .main-nav a,
+html[data-theme="dark"] .store-shell .language-button,
+html[data-theme="dark"] .store-shell .variant-chip,
+html[data-theme="dark"] .store-shell .detail-pill {
+  color: #b1c2cd;
+}
+html[data-theme="dark"] .store-shell .wordmark-mark {
+  background: #17364a;
+  border-color: #2b566d;
+}
+html[data-theme="dark"] .store-shell .stage-glow {
+  background: radial-gradient(circle, #17364a 0, #132b3b 55%, #0e1b25 76%);
+}
+html[data-theme="dark"] .store-shell .stage-orbit,
+html[data-theme="dark"] .store-shell .orbit-two {
+  border-color: #2d4c5d;
+}
+html[data-theme="dark"] .store-shell .photo-placeholder-inner,
+html[data-theme="dark"] .store-shell .stage-tag,
+html[data-theme="dark"] .store-shell .variant-chip,
+html[data-theme="dark"] .store-shell .step-card,
+html[data-theme="dark"] .store-shell .location,
+html[data-theme="dark"] .store-shell .button-outline {
+  background: #142633;
+  border-color: #2b4556;
+  color: var(--ink);
+}
+html[data-theme="dark"] .store-shell .photo-placeholder-inner small,
+html[data-theme="dark"] .store-shell .photo-placeholder-inner em,
+html[data-theme="dark"] .store-shell .stage-tag,
+html[data-theme="dark"] .store-shell .safety-note,
+html[data-theme="dark"] .store-shell .detail-pill {
+  color: #a5b7c4;
+}
+html[data-theme="dark"] .store-shell .uses-section,
+html[data-theme="dark"] .store-shell .location-compact {
+  background: #142633;
+}
+html[data-theme="dark"] .store-shell .use-item:hover {
+  background: #1b3546;
+}
+html[data-theme="dark"] .store-shell .use-arrow,
+html[data-theme="dark"] .store-shell .step-label,
+html[data-theme="dark"] .store-shell .use-number {
+  color: #8ba9ba;
+}
+html[data-theme="dark"] .store-shell .map-frame {
+  background: #1b3546;
+}
+html[data-theme="dark"] .store-shell .map-frame > a {
+  background: #e7f0f6;
+  color: #123b5d;
+}
+html[data-theme="dark"] .store-shell .page-hero-mark {
+  color: #142633;
+}
+html[data-theme="dark"] .store-shell .site-footer {
+  background: #09141c;
+}
+html[data-theme="dark"] .store-shell .footer-mark b,
+html[data-theme="dark"] .store-shell .footer-bottom a,
+html[data-theme="dark"] .store-shell .footer-social svg {
+  color: #8ed7ae;
+}
+html[data-theme="dark"] .store-shell .contact-fab {
+  background: #1c704d;
+}
+::view-transition-group(root) {
+  animation-duration: 650ms;
+}
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }

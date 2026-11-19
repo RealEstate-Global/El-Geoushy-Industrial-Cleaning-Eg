@@ -22,6 +22,8 @@ export const common = {
   useSteps: ["رش المنتج وفق تعليمات العبوة", "انتظر 30 ثانية", "امسح بقطعة قماش جافة"],
   navToggle: "فتح القائمة",
   language: "English",
+  darkMode: "التبديل إلى الوضع الداكن",
+  lightMode: "التبديل إلى الوضع الفاتح",
   productDetails: "تفاصيل المنتج",
   seeOffer: "اعرف المزيد عن العرض",
   allFaq: "كل الأسئلة الشائعة",
