@@ -1,7 +1,8 @@
 version: 2
 
 updates:
-  - package-ecosystem: bun
+  # Dependabot uses the npm ecosystem for pnpm manifests and lockfiles.
+  - package-ecosystem: npm
     directory: /el-geoushy
     schedule:
       interval: weekly
