@@ -1,0 +1,15 @@
+export const pages = {
+  contactEyebrow: "نحن هنا للمساعدة",
+  contactIntro: "تواصلوا مع الجيوشي للمنظفات الصناعية، أو اعثروا علينا في زفتى.",
+  faqEyebrow: "معلومات المنتج",
+  faqIntro: "إجابات مباشرة عن NEW CETRiS واستخدامه.",
+  usesEyebrow: "مجالات الاستخدام",
+  directionsEyebrow: "طريقة الاستخدام",
+  directionsIntro: "تعليمات الاستخدام المعروضة من المواد المقدمة من المالك.",
+  offerEyebrow: "عرض NEW CETRiS",
+  offerIntro: "الأسعار أدناه بيانات تجريبية قابلة للتعديل.",
+  offerNote: "لا توجد تفاصيل إضافية عن الشحن أو مدة العرض مؤكدة حاليًا.",
+  productTitle: "NEW CETRiS منظف متعدد الاستخدامات",
+  productEyebrow: "تفاصيل المنتج",
+  availableVariants: "الألوان المتاحة",
+} as const;

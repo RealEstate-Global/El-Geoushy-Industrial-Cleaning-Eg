@@ -1,16 +1,13 @@
-# Documentation
+# NEW CETRiS documentation
 
-| Document | What it covers |
-| --- | --- |
-| [Architecture](ARCHITECTURE.md) | Repository layout, boundaries, data flow |
-| [Frontend](FRONTEND.md) | Storefront app, routing, config, data, testing |
-| [Backend](BACKEND.md) | Clean Architecture layers, how to add features |
-| [API](API.md) | Endpoints, request/response shapes, errors |
-| [Development](DEVELOPMENT.md) | Local setup and daily commands |
-| [Deployment](DEPLOYMENT.md) | Building and running both apps |
-| [Error reporting](ERROR_REPORTING.md) | Local error capture flow |
-| [Product north star](PRODUCT_NORTH_STAR.md) | Product goal and success metric |
-| [Platform removal](PLATFORM_REMOVAL.md) | What was removed from the hosted build |
+| Document                                          | Purpose                                          |
+| ------------------------------------------------- | ------------------------------------------------ |
+| [Frontend architecture](FRONTEND_ARCHITECTURE.md) | Next.js routes, feature boundaries and data flow |
+| [Frontend setup](FRONTEND_SETUP.md)               | Install, run and check the frontend              |
+| [Demo data](FRONTEND_DEMO_DATA.md)                | Seed content, local storage and reset behavior   |
+| [Brand and content](CONTENT_AND_BRAND.md)         | Confirmed facts and safe copy rules              |
+| [Maps and reviews](GOOGLE_MAPS_REVIEWS.md)        | Maps, review destination and owner verification  |
+| [Deployment](DEPLOYMENT.md)                       | Frontend demo deployment notes                   |
+| [Future backend plan](FUTURE_BACKEND_PLAN.md)     | Proposed later integration only                  |
 
-The root [README](../README.md) is the entry point. Contributor rules live in
-[AGENTS.md](../AGENTS.md) and [CONTRIBUTING.md](../CONTRIBUTING.md).
+The existing ASP.NET Core source is preserved for a later phase. The public MVP has no backend connection.

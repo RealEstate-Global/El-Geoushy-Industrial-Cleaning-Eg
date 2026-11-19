@@ -1,5 +1,7 @@
 # Development
 
+> The current NEW CETRiS MVP is frontend-only. Use [FRONTEND_SETUP.md](FRONTEND_SETUP.md) for the public site and admin demo. The backend commands below are for the preserved, separate ASP.NET Core project and are not part of the frontend MVP workflow.
+
 ## Prerequisites
 
 - Node.js 22+ (this repo was verified on Node 24)

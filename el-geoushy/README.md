@@ -1,35 +1,15 @@
-# el-geoushy (frontend)
+# NEW CETRiS frontend
 
-Arabic-first storefront for El Geuishi industrial detergents. TanStack Start +
-React 19 + Vite + Tailwind CSS 4.
-
-This folder is self-contained. Install and run it here; there is no workspace
-root to set up.
+Arabic-first Next.js App Router frontend and browser-only admin demo for NEW CETRiS. The demo is not a secure or shared admin system and has no backend connection.
 
 ```sh
-corepack enable pnpm   # once, to activate the pnpm version pinned in package.json
+corepack enable pnpm
 pnpm install
-pnpm run dev        # http://localhost:8080
+pnpm dev
 ```
 
-Other commands: `pnpm run typecheck`, `pnpm run lint`, `pnpm run test`,
-`pnpm run build`, `pnpm run start`.
+Routes: `/`, `/product`, `/uses`, `/how-to-use`, `/offers`, `/faq`, `/contact`, `/admin`.
 
-## Source layout
+Typed seed data lives in `src/features/product/data/product.seed.ts`; bilingual content dictionaries are split into `src/features/i18n/data/ar/` and `src/features/i18n/data/en/`. Browser persistence is accessed through `src/lib/repositories/demo-data.ts` and `DemoProvider`. Admin changes can be cleared with **Reset demo data**.
 
-- Business/contact data: `src/shared/config/site.ts` (a `null` field hides its UI).
-- Routes: `src/routes/` — thin wrappers only (head/loader/route wiring); all UI
-  lives in `src/features/` and `src/shared/`.
-- Features (`src/features/`):
-  - `app-shell/` — Header, Footer, Logo, WhatsApp button.
-  - `marketing/` — home and about pages.
-  - `catalog/` — product/category data (`data/`), queries (`lib/`), cards and
-    grids (`components/`), listing and detail pages (`pages/`).
-  - `faq/` — FAQ data, accordion, page.
-  - `contact/` — form schema (`lib/schema.ts`), form, page.
-  - `legal/` — LegalPage component plus privacy/terms page content.
-- Shared (`src/shared/`): `ui/` primitives (shadcn), `components/` page sections,
-  `config/`, `lib/`, `hooks/`, `providers/` (theme).
-
-Full documentation: [../docs/FRONTEND.md](../docs/FRONTEND.md) and
-[../docs/DEVELOPMENT.md](../docs/DEVELOPMENT.md).
+Product photos, WhatsApp E.164 confirmation, and the verified Google business/review destination are owner follow-ups. See the root `docs/` folder for details.

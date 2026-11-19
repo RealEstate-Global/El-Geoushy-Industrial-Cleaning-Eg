@@ -1,0 +1,32 @@
+export const common = {
+  nav: ["Home", "Product", "Uses", "How to use", "Offers", "FAQ", "Contact"],
+  brandBy: "A product by El-Gioushy Industrial Detergents",
+  explore: "Explore the product",
+  uses: "Versatile uses, following bottle instructions",
+  howTitle: "Three simple steps",
+  safety:
+    "Always follow the bottle instructions. Test a small hidden area first where appropriate.",
+  offer: "Demo offer",
+  offerCopy: "2 bottles for EGP 100",
+  findUs: "Find us",
+  address: "Zefta, Gharbia, Egypt",
+  directions: "Directions on Google Maps",
+  review: "Open our Google Maps listing to review",
+  reviewNote:
+    "We welcome your honest experience on Google Maps. Choose Reviews, then Write a review. Your feedback helps us improve.",
+  contact: "Contact us",
+  faq: "Frequently asked questions",
+  facebook: "Follow NEW CETRiS on Facebook",
+  whatsappFallback: "WhatsApp number is awaiting verification. Contact us through Facebook.",
+  footerNote: "Displayed offer and variant information is demo data and may be updated.",
+  usesList: ["Kitchen", "Bathroom", "Ceramic", "Cars", "Carpets", "Upholstery"],
+  useSteps: ["Spray as directed on the bottle", "Wait 30 seconds", "Wipe with a dry cloth"],
+  navToggle: "Open menu",
+  language: "العربية",
+  productDetails: "Product details",
+  seeOffer: "Offer details",
+  allFaq: "All FAQs",
+  contactCta: "Ask us",
+  provisional:
+    "Colors are provisional and do not indicate confirmed formula or fragrance differences.",
+} as const;

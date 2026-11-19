@@ -1,4 +1,6 @@
-# Backend (`backend/`)
+# Backend — future integration only
+
+> The NEW CETRiS MVP is frontend-only. This page describes the preserved ASP.NET Core project and does not indicate that the public site is connected to it. Backend integration is not implemented in the MVP.
 
 ASP.NET Core 9 solution organized with Clean Architecture. Locally it uses
 SQLite; the persistence layer is isolated so a different provider can replace it

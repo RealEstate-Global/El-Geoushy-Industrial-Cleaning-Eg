@@ -1,4 +1,6 @@
-# API reference
+# Existing API reference — not used by the MVP
+
+> The NEW CETRiS MVP has no API calls or working backend integration. This document describes existing backend source only; proposed future integration is in [FUTURE_BACKEND_PLAN.md](FUTURE_BACKEND_PLAN.md).
 
 Base URL in development: `http://localhost:5080`
 

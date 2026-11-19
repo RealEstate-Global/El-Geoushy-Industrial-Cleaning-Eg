@@ -1,0 +1,15 @@
+export const pages = {
+  contactEyebrow: "We’re here to help",
+  contactIntro: "Contact El-Gioushy Industrial Detergents or find us in Zefta.",
+  faqEyebrow: "Product information",
+  faqIntro: "Straightforward answers about NEW CETRiS and its use.",
+  usesEyebrow: "Applications",
+  directionsEyebrow: "Directions",
+  directionsIntro: "Usage steps shown from owner-provided materials.",
+  offerEyebrow: "NEW CETRiS offer",
+  offerIntro: "The offer below is editable demo data.",
+  offerNote: "No shipping terms or offer dates have been confirmed.",
+  productTitle: "NEW CETRiS multi-purpose cleaner",
+  productEyebrow: "Product details",
+  availableVariants: "Available variants",
+} as const;

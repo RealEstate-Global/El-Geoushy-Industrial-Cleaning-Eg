@@ -1,69 +1,33 @@
-# Monorepo
+# NEW CETRiS
 
-Two independently runnable applications, one repository:
+> **MVP is frontend-only. Admin edits are demo/local-browser data and are not secure or shared across devices. Backend is intentionally deferred.**
 
-| Folder | What it is | Stack |
-| --- | --- | --- |
-| `el-geoushy/` | The public storefront (frontend) | TanStack Start + React 19 + Vite + Tailwind CSS 4 |
-| `backend/` | API and future admin surface | ASP.NET Core 9, Clean Architecture, EF Core (SQLite locally) |
-| `docs/` | All project documentation | Markdown |
-| `.github/` | CI workflows, Dependabot, issue and PR templates | YAML |
+NEW CETRiS is a dedicated Arabic-first product website for a multi-purpose cleaner by **El-Gioushy Industrial Detergents**. This repository currently contains the public demo frontend and a preserved ASP.NET Core project for a later phase. The backend was not part of this MVP implementation.
 
-The frontend is intentionally self-contained: `el-geoushy/` holds its own
-`package.json`, lockfile, TypeScript config, Vite config, tests, and public
-assets. You can open that folder on its own and it runs. The backend is the same
-idea: `backend/ElGeoushy.sln` restores and builds on its own.
+## Run the frontend
 
-## Quick start
-
-### Frontend
-
-Prerequisites: Node 22+ and pnpm (a `packageManager` pin in `el-geoushy/package.json`
-means corepack handles the version: `corepack enable pnpm`).
+Requires Node.js 22+ and pnpm 12 (pinned in `el-geoushy/package.json`).
 
 ```sh
 cd el-geoushy
 pnpm install
-pnpm run dev        # http://localhost:8080
+pnpm dev
 ```
 
-```sh
-pnpm run typecheck  # tsc --noEmit
-pnpm run lint       # eslint
-pnpm run test       # vitest
-pnpm run build      # production build -> .output/
-pnpm run start      # serve the production build with Node
-```
+Open <http://localhost:3000>. The frontend is Next.js App Router with TypeScript. See [frontend setup](docs/FRONTEND_SETUP.md).
 
-### Backend
+## Demo content and owner follow-up
 
-Prerequisite: .NET 9 SDK.
+- `/admin` edits sample data in this browser's `localStorage`; use **Reset demo data** to restore the seed.
+- WhatsApp number `+0201016264326` is kept verbatim and marked unverified. Confirm it in E.164 format before enabling WhatsApp ordering.
+- The Google Maps actions use a business/location search URL because no verified listing URL or Place ID was supplied. Confirm the listing and use a verified direct review URL when available.
+- Four variant colors are provisional labels, not confirmed formulas or fragrances.
+- No real NEW CETRiS product photos are currently in the frontend assets. The website marks this as a placeholder; supply approved product and variant images before production.
 
-```sh
-cd backend
-dotnet restore
-dotnet build
-dotnet test
-dotnet run --project src/ElGeoushy.Api   # http://localhost:5080
-```
+## Project layout
 
-Health check: <http://localhost:5080/health>. OpenAPI JSON (development):
-<http://localhost:5080/openapi/v1.json>.
+- `el-geoushy/` — sole frontend app (Next.js App Router).
+- `backend/` — existing ASP.NET Core solution preserved for future integration; not connected to the MVP.
+- `docs/` — setup, architecture, demo data, brand/content, deployment and future backend notes.
 
-## Documentation index
-
-Everything lives in [`docs/`](docs/README.md):
-
-- [Architecture](docs/ARCHITECTURE.md)
-- [Frontend guide](docs/FRONTEND.md)
-- [Backend guide](docs/BACKEND.md)
-- [API reference](docs/API.md)
-- [Development setup](docs/DEVELOPMENT.md)
-- [Deployment](docs/DEPLOYMENT.md)
-- [Error reporting](docs/ERROR_REPORTING.md)
-- [Product north star](docs/PRODUCT_NORTH_STAR.md)
-- [Removal of the hosted-platform build](docs/PLATFORM_REMOVAL.md)
-
-Contributor rules: [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md).
-Security policy: [SECURITY.md](SECURITY.md). Recent changes:
-[CHANGELOG.md](CHANGELOG.md).
+The public experience is exclusively for NEW CETRiS. The product offer shown in demo data is two bottles for EGP 100. No delivery terms, reviews, ratings, ingredients, certifications, or formula differences are implied.
