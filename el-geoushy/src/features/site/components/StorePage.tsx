@@ -2,10 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { ArrowUpLeft, Check, ChevronLeft, Clock3, Droplets, Sparkles } from "lucide-react";
+import { ArrowUpLeft, Check, ChevronLeft, Clock3, Droplets, MessageCircle, Sparkles } from "lucide-react";
 import { useDemo } from "./DemoProvider";
 import { MapSection } from "./MapSection";
 import { translate, translateHome, translatePages } from "@/features/i18n";
+import { getWhatsAppChatUrl } from "@/lib/whatsapp";
 import type { Locale, Localized, Variant } from "@/types/site";
 
 type PageKind = "home" | "product" | "uses" | "how-to-use" | "offers" | "faq" | "contact";
@@ -267,11 +268,15 @@ export function StorePage({ kind }: { kind: PageKind }) {
                 <ArrowUpLeft size={17} />
               </Link>
               <a
-                href={data.settings.facebook}
+                href={getWhatsAppChatUrl(
+                  data.settings.whatsappNumber || "+0201016264326",
+                  isAr ? "مرحباً، أود الاستفسار عن منتج نيو سيترس" : "Hello, I would like to inquire about NEW CETRiS",
+                )}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="button button-outline inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs"
               >
+                <MessageCircle size={17} className="text-[#25D366]" />
                 {c.contactCta}
               </a>
             </div>
@@ -383,7 +388,39 @@ export function StorePage({ kind }: { kind: PageKind }) {
   if (kind === "contact")
     return (
       <PageIntro title={c.contact} eyebrow={p.contactEyebrow} intro={p.contactIntro}>
-        <div className="wrap pb-28 sm:pb-36 lg:pb-40">
+        <div className="wrap pb-28 sm:pb-36 lg:pb-40 space-y-8">
+          <div className="bg-surface border border-border rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xs">
+            <div className="flex items-center gap-4">
+              <span className="w-12 h-12 rounded-2xl bg-[#25D366]/20 text-[#25D366] flex items-center justify-center font-bold text-2xl shrink-0">
+                <MessageCircle size={24} />
+              </span>
+              <div>
+                <span className="text-xs font-bold text-accent uppercase tracking-wider block">
+                  {isAr ? "محادثة واتساب المباشرة" : "Direct WhatsApp Chat"}
+                </span>
+                <h3 className="text-xl font-bold text-ink mt-0.5 dir-ltr text-left">
+                  +0201016264326
+                </h3>
+                <p className="text-xs text-muted mt-1">
+                  {isAr
+                    ? "تواصل معنا مباشرة عبر واتساب لطلب المنتج أو الاستفسار عن الأسعار والمبيعات."
+                    : "Chat directly with our team on WhatsApp for orders, pricing, and inquiries."}
+                </p>
+              </div>
+            </div>
+            <a
+              href={getWhatsAppChatUrl(
+                data.settings.whatsappNumber || "+0201016264326",
+                isAr ? "مرحباً، أود الاستفسار عن منتج نيو سيترس" : "Hello, I would like to inquire about NEW CETRiS",
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-[#25D366] hover:bg-[#20ba5a] text-white text-xs sm:text-sm font-bold shadow-md transition-all duration-200 hover:-translate-y-0.5 whitespace-nowrap"
+            >
+              <MessageCircle size={18} />
+              <span>{isAr ? "تحدث معنا على واتساب" : "Chat on WhatsApp"}</span>
+            </a>
+          </div>
           <MapSection />
         </div>
       </PageIntro>
@@ -485,13 +522,25 @@ export function StorePage({ kind }: { kind: PageKind }) {
               <Variants selectedVariant={activeVariant} onSelect={setActiveVariant} />
               <p className="provisional-note text-xs text-muted/80">{c.provisional}</p>
             </div>
-            <div className="pt-3">
+            <div className="pt-3 flex items-center gap-3 flex-wrap">
+              <a
+                className="button button-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md bg-[#25D366] hover:bg-[#20ba5a] border-0"
+                href={getWhatsAppChatUrl(
+                  data.settings.whatsappNumber || "+0201016264326",
+                  isAr ? `مرحباً، أود طلب عبوة ${data.product.arabicName}` : `Hello, I would like to order ${data.product.name}`,
+                )}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <MessageCircle size={17} />
+                {isAr ? "طلب عبر واتساب" : "Order via WhatsApp"}
+                <ArrowUpLeft size={17} />
+              </a>
               <Link
-                className="button button-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold shadow-sm transition-all duration-200 hover:-translate-y-0.5 hover:shadow-md"
+                className="button button-outline inline-flex items-center gap-2 px-6 py-3.5 rounded-2xl text-xs sm:text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xs"
                 href="/contact"
               >
                 {c.contactCta}
-                <ArrowUpLeft size={17} />
               </Link>
             </div>
           </div>

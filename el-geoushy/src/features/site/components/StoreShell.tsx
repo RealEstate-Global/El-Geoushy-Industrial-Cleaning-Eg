@@ -20,7 +20,8 @@ import {
 } from "lucide-react";
 import { useDemo } from "./DemoProvider";
 import { translate, translateHome } from "@/features/i18n";
-import { getVerifiedWhatsAppUrl } from "@/lib/whatsapp";
+import { getVerifiedWhatsAppUrl, getWhatsAppChatUrl } from "@/lib/whatsapp";
+import { WhatsAppChat } from "./WhatsAppChat";
 
 const paths = ["/", "/product", "/uses", "/how-to-use", "/offers", "/faq", "/contact"];
 
@@ -30,10 +31,11 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
   const c = translate(locale);
   const h = translateHome(locale);
   const [open, setOpen] = useState(false);
-  const whatsapp = getVerifiedWhatsAppUrl(
-    data.settings.whatsappNumber,
-    data.settings.whatsappNumberNeedsVerification,
-  );
+  const whatsappUrl =
+    getVerifiedWhatsAppUrl(
+      data.settings.whatsappNumber,
+      data.settings.whatsappNumberNeedsVerification,
+    ) || getWhatsAppChatUrl(data.settings.whatsappNumber || "+0201016264326");
 
   if (pathname.startsWith("/admin")) return <div dir="ltr">{children}</div>;
 
@@ -115,10 +117,11 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
 
             <a
               className="button button-primary header-cta hidden sm:inline-flex items-center gap-2 rounded-2xl px-4 py-2.5 text-xs font-bold transition-all duration-200 hover:shadow-md hover:-translate-y-0.5"
-              href={whatsapp ?? data.settings.facebook}
+              href={whatsappUrl}
               target="_blank"
               rel="noopener noreferrer"
             >
+              <MessageCircle size={15} />
               {c.contactCta}
               <ArrowUpLeft size={15} />
             </a>
@@ -201,25 +204,16 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
                 )}
 
                 {/* WhatsApp Badge */}
-                {whatsapp ? (
-                  <a
-                    href={whatsapp}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="WhatsApp"
-                    title="WhatsApp"
-                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#25D366]/20 hover:bg-[#25D366]/35 text-[#8ed7ae] transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
-                  >
-                    <MessageCircle size={18} />
-                  </a>
-                ) : (
-                  <span
-                    title={c.whatsappFallback}
-                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/5 text-slate-400 cursor-not-allowed opacity-60"
-                  >
-                    <MessageCircle size={18} />
-                  </span>
-                )}
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp"
+                  title="WhatsApp: +0201016264326"
+                  className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#25D366]/20 hover:bg-[#25D366]/35 text-[#8ed7ae] transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+                >
+                  <MessageCircle size={18} />
+                </a>
 
                 {/* Google Reviews Badge */}
                 {data.settings.googleReviewUrl && (
@@ -308,19 +302,8 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
         </div>
       </footer>
 
-      {/* Floating Action Button (FAB) */}
-      {!whatsapp && (
-        <a
-          className="contact-fab fixed z-50 bottom-6 left-6 flex items-center gap-2.5 rounded-full px-5 py-3 text-white bg-accent-dark shadow-fab hover:shadow-xl transition-all duration-200 hover:scale-105"
-          href={data.settings.facebook}
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label={locale === "ar" ? "تواصل معنا على Facebook" : "Contact us on Facebook"}
-        >
-          <MessageCircle size={19} />
-          <span className="font-bold text-xs">{locale === "ar" ? "تواصل معنا" : "Contact us"}</span>
-        </a>
-      )}
+      {/* Interactive WhatsApp Floating Chat Widget */}
+      <WhatsAppChat number={data.settings.whatsappNumber || "+0201016264326"} locale={locale} />
     </div>
   );
 }
