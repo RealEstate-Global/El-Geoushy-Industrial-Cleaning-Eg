@@ -18,6 +18,8 @@ import {
   Trash2,
   Save,
   Image as ImageIcon,
+  Sun,
+  Moon,
 } from "lucide-react";
 import { useDemo } from "@/features/site/components/DemoProvider";
 import { StorePage } from "@/features/site/components/StorePage";
@@ -197,7 +199,7 @@ function LocalizedArray({
 /* ── Main dashboard component ──────────────────────────────────── */
 
 export function AdminDashboard() {
-  const { data, setData, reset } = useDemo();
+  const { data, setData, reset, theme, toggleTheme } = useDemo();
   const [tab, setTab] = useState<Tab>("overview");
   const [notice, setNotice] = useState("");
 
@@ -968,47 +970,52 @@ export function AdminDashboard() {
   /* ── Shell layout ───────────────────────────────────────────── */
   return (
     <div className="min-h-screen grid grid-cols-1 md:grid-cols-[240px_minmax(0,1fr)] ltr bg-[var(--surface-soft)] text-[var(--ink)] font-[family-name:var(--font-latin)]">
-      {/* ── Sidebar ──────────────────────────────────────────── */}
-      <aside className="sticky top-0 h-screen max-md:static max-md:h-auto bg-[var(--primary-dark)] text-white py-6 px-4 flex flex-col">
+      {/* ── Sidebar (Unified app tokens: --surface, --border, --primary, --ink) ── */}
+      <aside className="sticky top-0 h-screen max-md:static max-md:h-auto bg-[var(--surface)] border-r border-[var(--border)] text-[var(--ink)] py-6 px-4 flex flex-col transition-colors duration-200">
         <Link
-          className="flex items-center gap-2.5 text-[11px] tracking-wider"
+          className="flex items-center gap-2.5 text-xs tracking-wider group"
           href="/"
         >
-          <span className="wordmark-mark inline-flex items-center justify-center rounded-lg text-sm font-bold">
+          <span className="wordmark-mark w-9 h-9 rounded-2xl flex items-center justify-center font-bold text-base shadow-2xs group-hover:scale-105 transition-transform duration-200">
             C
           </span>
-          <span>
-            NEW <b className="text-[var(--accent)]">CETRiS</b>
-            <small className="block text-[9px] tracking-widest opacity-60">
+          <span className="leading-tight">
+            <span className="font-extrabold text-[var(--ink)] text-sm">
+              NEW <b className="text-[var(--primary)] font-black">CETRiS</b>
+            </span>
+            <small className="block text-[9px] font-bold tracking-widest text-[var(--ink-secondary)] opacity-70 uppercase">
               DEMO CONSOLE
             </small>
           </span>
         </Link>
 
-        <div className="text-[9px] tracking-widest text-[var(--warning-fg)] bg-[var(--warning-bg)] py-1.5 px-2.5 rounded-lg mt-6 mb-4 inline-block self-start">
-          ● DEMO MODE
+        <div className="inline-flex items-center gap-1.5 text-[10px] font-bold tracking-wider text-[var(--warning-fg)] bg-[var(--warning-bg)] border border-[var(--warning-border)] py-1 px-2.5 rounded-full mt-5 mb-4 self-start">
+          <span className="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse" />
+          DEMO MODE
         </div>
 
-        <nav className="flex flex-col gap-1 mt-2 max-md:flex-row max-md:overflow-x-auto max-md:gap-0">
+        <nav className="flex flex-col gap-1.5 mt-1 max-md:flex-row max-md:overflow-x-auto pb-2 md:pb-0">
           {tabs.map((t) => (
             <button
               key={t.id}
-              className={`flex items-center gap-3 border-0 rounded-xl text-left py-2.5 px-3.5 text-xs cursor-pointer transition-all duration-200 w-full max-md:shrink-0 max-md:w-auto ${
+              className={`flex items-center gap-3 border-0 rounded-2xl text-left py-2.5 px-3.5 text-xs font-semibold cursor-pointer transition-all duration-200 w-full max-md:shrink-0 max-md:w-auto ${
                 tab === t.id
-                  ? "bg-white/15 text-white font-semibold"
-                  : "bg-transparent text-white/60 hover:bg-white/10 hover:text-white"
+                  ? "bg-[var(--primary)] text-white shadow-xs"
+                  : "bg-transparent text-[var(--ink-secondary)] hover:text-[var(--ink)] hover:bg-[var(--surface-soft)]"
               }`}
               onClick={() => setTab(t.id)}
             >
-              {t.icon}
-              {t.title}
+              <span className="shrink-0 [&>svg]:w-4 [&>svg]:h-4">
+                {t.icon}
+              </span>
+              <span>{t.title}</span>
             </button>
           ))}
         </nav>
 
         <Link
           href="/"
-          className="flex items-center gap-2 mt-auto p-3 text-white/50 text-xs hover:text-white transition-colors max-md:hidden"
+          className="flex items-center gap-2 mt-auto p-3 text-[var(--ink-secondary)] text-xs font-semibold hover:text-[var(--primary)] hover:bg-[var(--surface-soft)] rounded-2xl transition-all duration-200 max-md:hidden"
         >
           <ArrowLeft size={16} /> View website
         </Link>
@@ -1017,7 +1024,7 @@ export function AdminDashboard() {
       {/* ── Main content ─────────────────────────────────────── */}
       <main className="px-4 md:px-8 pb-8 min-w-0">
         {/* Demo banner */}
-        <div className="mt-5 mb-6 bg-[var(--warning-bg)] border border-[var(--warning-border)] rounded-lg text-[var(--warning-fg)] py-3 px-4 flex gap-3 text-[11px]">
+        <div className="mt-5 mb-6 bg-[var(--warning-bg)] border border-[var(--warning-border)] rounded-2xl text-[var(--warning-fg)] py-3 px-4 flex gap-3 text-[11px]">
           <b>Demo Mode</b>
           <span>
             Changes are stored locally in this browser only. This is not secure
@@ -1026,25 +1033,34 @@ export function AdminDashboard() {
         </div>
 
         {/* Top bar */}
-        <div className="flex items-center justify-between pb-5">
-          <span className="text-[11px] text-[var(--ink-hint)] uppercase tracking-wider">
-            NEW CETRiS / {tabs.find((t) => t.id === tab)?.title}
+        <div className="flex items-center justify-between pb-5 flex-wrap gap-3">
+          <span className="text-[11px] text-[var(--ink-secondary)] font-semibold uppercase tracking-wider">
+            NEW CETRiS <span className="opacity-40">/</span> {tabs.find((t) => t.id === tab)?.title}
           </span>
-          <button
-            className="button button-outline inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-xs text-[var(--danger)]"
-            onClick={() => {
-              if (
-                window.confirm(
-                  "Reset all local demo data to the original seed?",
-                )
-              ) {
-                reset();
-                notify("Demo data reset to original values.");
-              }
-            }}
-          >
-            <RotateCcw size={15} /> Reset demo data
-          </button>
+          <div className="flex items-center gap-2.5">
+            <button
+              onClick={() => toggleTheme()}
+              aria-label="Toggle theme"
+              className="button button-outline inline-flex items-center justify-center w-8 h-8 rounded-xl text-xs transition-colors cursor-pointer"
+            >
+              {theme === "dark" ? <Sun size={15} /> : <Moon size={15} />}
+            </button>
+            <button
+              className="button button-outline inline-flex items-center gap-2 rounded-2xl px-4 py-2 text-xs text-[var(--danger)] cursor-pointer"
+              onClick={() => {
+                if (
+                  window.confirm(
+                    "Reset all local demo data to the original seed?",
+                  )
+                ) {
+                  reset();
+                  notify("Demo data reset to original values.");
+                }
+              }}
+            >
+              <RotateCcw size={15} /> Reset demo data
+            </button>
+          </div>
         </div>
 
         {/* Panel */}
