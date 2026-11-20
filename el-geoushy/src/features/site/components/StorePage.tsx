@@ -211,7 +211,7 @@ function FaqPreview({ locale }: { locale: Locale }) {
                 +
               </span>
             </summary>
-            <p className="text-xs sm:text-sm text-muted leading-relaxed mt-3 pt-3 border-t border-border/60">
+            <p className="text-xs sm:text-sm text-muted leading-relaxed mt-2.5">
               {text(item.answer, locale)}
             </p>
           </details>
@@ -247,8 +247,8 @@ export function StorePage({ kind }: { kind: PageKind }) {
         {/* Hero Section */}
         <section className="hero wrap pt-8 sm:pt-14 pb-6 sm:pb-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           <div className="hero-copy lg:col-span-7 space-y-5">
-            <span className="eyebrow inline-flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-wider">
-              <span className="eyebrow-line w-6 h-0.5 bg-accent" />
+            <span className="eyebrow inline-flex items-center gap-2 text-xs font-bold text-primary uppercase tracking-wider px-3 py-1 rounded-full bg-primary/10 self-start">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent" />
               {h.heroEyebrow}
             </span>
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-ink leading-tight tracking-tight">
@@ -357,9 +357,10 @@ export function StorePage({ kind }: { kind: PageKind }) {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-ink tracking-tight mt-1">{c.howTitle}</h2>
           </div>
           <HowSteps locale={locale} />
-          <p className="safety-note text-xs text-muted/90 mt-6 p-3 rounded-xl bg-surface-tint/40 border-r-4 border-accent">
-            {c.safety}
-          </p>
+          <div className="safety-note text-xs text-muted/90 mt-6 p-4 rounded-2xl bg-surface-tint/60 flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
+            <span>{c.safety}</span>
+          </div>
         </section>
 
         {/* Special Offer Band */}
@@ -404,7 +405,7 @@ export function StorePage({ kind }: { kind: PageKind }) {
                   +
                 </span>
               </summary>
-              <p className="text-xs sm:text-sm text-muted leading-relaxed mt-3 pt-3 border-t border-border/60">
+              <p className="text-xs sm:text-sm text-muted leading-relaxed mt-2.5">
                 {text(item.answer, locale)}
               </p>
             </details>
@@ -418,9 +419,10 @@ export function StorePage({ kind }: { kind: PageKind }) {
       <PageIntro title={c.uses} eyebrow={p.usesEyebrow} intro={data.product.description[locale]}>
         <div className="wrap space-y-8 pb-28 sm:pb-36 lg:pb-40">
           <UsesGrid locale={locale} />
-          <p className="safety-note text-xs text-muted/90 p-3 rounded-xl bg-surface-tint/40 border-r-4 border-accent">
-            {c.safety}
-          </p>
+          <div className="safety-note text-xs text-muted/90 p-4 rounded-2xl bg-surface-tint/60 flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
+            <span>{c.safety}</span>
+          </div>
         </div>
       </PageIntro>
     );
@@ -430,9 +432,10 @@ export function StorePage({ kind }: { kind: PageKind }) {
       <PageIntro title={c.howTitle} eyebrow={p.directionsEyebrow} intro={p.directionsIntro}>
         <div className="wrap space-y-8 pb-28 sm:pb-36 lg:pb-40">
           <HowSteps locale={locale} />
-          <p className="safety-note text-xs text-muted/90 p-3 rounded-xl bg-surface-tint/40 border-r-4 border-accent">
-            {c.safety}
-          </p>
+          <div className="safety-note text-xs text-muted/90 p-4 rounded-2xl bg-surface-tint/60 flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
+            <span>{c.safety}</span>
+          </div>
         </div>
       </PageIntro>
     );
@@ -442,9 +445,10 @@ export function StorePage({ kind }: { kind: PageKind }) {
       <PageIntro title={c.offer} eyebrow={p.offerEyebrow} intro={p.offerIntro}>
         <div className="wrap space-y-8 pb-28 sm:pb-36 lg:pb-40">
           <OfferBlock locale={locale} />
-          <p className="safety-note text-xs text-muted/90 p-3 rounded-xl bg-surface-tint/40 border-r-4 border-accent">
-            {p.offerNote}
-          </p>
+          <div className="safety-note text-xs text-muted/90 p-4 rounded-2xl bg-surface-tint/60 flex items-center gap-2.5">
+            <span className="w-2 h-2 rounded-full bg-accent shrink-0" />
+            <span>{p.offerNote}</span>
+          </div>
         </div>
       </PageIntro>
     );

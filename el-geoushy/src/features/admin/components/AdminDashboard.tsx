@@ -304,7 +304,7 @@ export function AdminDashboard() {
         </div>
 
         {/* Demo callout */}
-        <div className="bg-[var(--surface-muted)] border-l-[3px] border-l-[var(--primary)] p-4 my-5 rounded-r-lg">
+        <div className="bg-[var(--surface-muted)] p-4 my-5 rounded-2xl">
           <b className="text-sm">Demo Mode</b>
           <p className="text-xs text-[var(--ink-secondary)] mt-1">
             Edits are stored locally in this browser only. This is not a secure
@@ -993,9 +993,9 @@ export function AdminDashboard() {
           {tabs.map((t) => (
             <button
               key={t.id}
-              className={`flex items-center gap-3 border-0 rounded-lg text-left py-2.5 px-3 text-xs cursor-pointer transition-all duration-200 w-full max-md:shrink-0 max-md:w-auto ${
+              className={`flex items-center gap-3 border-0 rounded-xl text-left py-2.5 px-3.5 text-xs cursor-pointer transition-all duration-200 w-full max-md:shrink-0 max-md:w-auto ${
                 tab === t.id
-                  ? "bg-white/10 text-white shadow-[inset_3px_0_var(--accent)]"
+                  ? "bg-white/15 text-white font-semibold"
                   : "bg-transparent text-white/60 hover:bg-white/10 hover:text-white"
               }`}
               onClick={() => setTab(t.id)}
@@ -1026,7 +1026,7 @@ export function AdminDashboard() {
         </div>
 
         {/* Top bar */}
-        <div className="flex items-center justify-between pb-5 border-b border-[var(--border)]">
+        <div className="flex items-center justify-between pb-5">
           <span className="text-[11px] text-[var(--ink-hint)] uppercase tracking-wider">
             NEW CETRiS / {tabs.find((t) => t.id === tab)?.title}
           </span>

@@ -31,10 +31,10 @@
   --surface-tint: #e8f7ef;
   --surface-dark: #102d42;
 
-  --border: rgb(23 43 58 / 0.08);
-  --border-soft: rgb(23 43 58 / 0.04);
-  --border-accent: rgb(22 119 184 / 0.15);
-  --border-muted: rgb(23 43 58 / 0.06);
+  --border: rgb(23 43 58 / 0.05);
+  --border-soft: rgb(23 43 58 / 0.03);
+  --border-accent: rgb(22 119 184 / 0.12);
+  --border-muted: rgb(23 43 58 / 0.04);
 
   --focus-ring: #72b9d9;
   --selection-bg: #d7f0e1;
@@ -97,10 +97,10 @@ html[data-theme="dark"] {
   --surface-tint: #17364a;
   --surface-dark: #09141c;
 
-  --border: rgb(255 255 255 / 0.08);
-  --border-soft: rgb(255 255 255 / 0.04);
-  --border-accent: rgb(83 181 232 / 0.18);
-  --border-muted: rgb(255 255 255 / 0.06);
+  --border: rgb(255 255 255 / 0.05);
+  --border-soft: rgb(255 255 255 / 0.03);
+  --border-accent: rgb(83 181 232 / 0.12);
+  --border-muted: rgb(255 255 255 / 0.04);
 
   --selection-bg: #17364a;
   --selection-fg: #e7f0f6;
@@ -297,7 +297,7 @@ html[data-theme="dark"] .wordmark-mark {
     background: var(--surface);
     padding: 16px 24px;
     box-shadow: var(--shadow-md);
-    border-bottom: 1px solid var(--border);
+    border-radius: 0 0 var(--radius-lg) var(--radius-lg);
     flex-direction: column;
     gap: 8px;
   }

@@ -39,8 +39,8 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="store-shell min-h-screen flex flex-col" dir={locale === "ar" ? "rtl" : "ltr"}>
-      {/* Main Sticky Header */}
-      <header className="site-header sticky top-0 z-40 backdrop-blur-md bg-surface/95 border-b border-border/30 shadow-xs transition-colors duration-200">
+      {/* Main Sticky Header (Soft blur, clean borderless elevation) */}
+      <header className="site-header sticky top-0 z-40 backdrop-blur-md bg-surface/95 shadow-xs transition-colors duration-200">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 gap-4">
           <div className="flex items-center gap-3">
             <Link href="/" className="wordmark flex items-center gap-3 group" aria-label="NEW CETRiS home">
@@ -130,9 +130,9 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
       <main className="flex-1 w-full">{children}</main>
 
       {/* Modernized Site Footer */}
-      <footer className="site-footer bg-surface-dark text-white border-t border-white/10 mt-auto transition-colors duration-200">
+      <footer className="site-footer bg-surface-dark text-white mt-auto transition-colors duration-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-          <div className="footer-top grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-12 border-b border-white/10">
+          <div className="footer-top grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-12 pb-10">
             {/* Column 1: Brand Info */}
             <div className="md:col-span-5 space-y-4">
               <Link href="/" className="wordmark footer-mark flex items-center gap-3" aria-label="NEW CETRiS home">
@@ -194,7 +194,7 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
                     rel="noopener noreferrer"
                     aria-label="Facebook"
                     title={c.facebook}
-                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/10 hover:bg-[#1877F2]/25 text-white hover:text-sky-300 border border-white/10 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/10 hover:bg-[#1877F2]/25 text-white hover:text-sky-300 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
                     <Facebook size={18} />
                   </a>
@@ -208,14 +208,14 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
                     rel="noopener noreferrer"
                     aria-label="WhatsApp"
                     title="WhatsApp"
-                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#25D366]/20 hover:bg-[#25D366]/35 text-[#8ed7ae] border border-[#25D366]/30 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#25D366]/20 hover:bg-[#25D366]/35 text-[#8ed7ae] transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
                     <MessageCircle size={18} />
                   </a>
                 ) : (
                   <span
                     title={c.whatsappFallback}
-                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/5 text-slate-400 border border-white/5 cursor-not-allowed opacity-60"
+                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/5 text-slate-400 cursor-not-allowed opacity-60"
                   >
                     <MessageCircle size={18} />
                   </span>
@@ -229,7 +229,7 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
                     rel="noopener noreferrer"
                     aria-label="Google Reviews"
                     title={c.review}
-                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-amber-400/15 hover:bg-amber-400/30 text-amber-300 border border-amber-400/25 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-amber-400/15 hover:bg-amber-400/30 text-amber-300 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
                     <Star size={18} />
                   </a>
@@ -243,7 +243,7 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
                     rel="noopener noreferrer"
                     aria-label="TikTok"
                     title="TikTok"
-                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border border-white/10 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/10 hover:bg-white/20 text-white transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
                     <Music size={18} />
                   </a>
@@ -257,7 +257,7 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
                     rel="noopener noreferrer"
                     aria-label="X (Twitter)"
                     title="X"
-                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/10 hover:bg-white/20 text-white border border-white/10 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-white/10 hover:bg-white/20 text-white transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
                     <Twitter size={18} />
                   </a>
@@ -271,7 +271,7 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
                     rel="noopener noreferrer"
                     aria-label="Pinterest"
                     title="Pinterest"
-                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#E60023]/20 hover:bg-[#E60023]/35 text-rose-300 border border-[#E60023]/30 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-[#E60023]/20 hover:bg-[#E60023]/35 text-rose-300 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
                     <Pin size={18} />
                   </a>
@@ -285,7 +285,7 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
                     rel="noopener noreferrer"
                     aria-label="Instagram"
                     title="Instagram"
-                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-pink-500/20 hover:bg-pink-500/35 text-pink-300 border border-pink-500/30 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
+                    className="w-10 h-10 rounded-2xl flex items-center justify-center bg-pink-500/20 hover:bg-pink-500/35 text-pink-300 transition-all duration-200 hover:-translate-y-1 hover:shadow-md"
                   >
                     <Instagram size={18} />
                   </a>
@@ -300,7 +300,7 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
             <span>{c.footerNote}</span>
             <Link
               href="/admin"
-              className="text-accent hover:underline px-2.5 py-1 rounded-lg bg-white/5 border border-white/10"
+              className="text-accent hover:underline px-2.5 py-1 rounded-lg bg-white/5"
             >
               Admin demo
             </Link>
