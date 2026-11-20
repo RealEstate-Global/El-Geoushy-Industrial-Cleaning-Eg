@@ -291,10 +291,13 @@ export function StorePage({ kind }: { kind: PageKind }) {
         </section>
 
         {/* Quick Facts Strip */}
-        <section className="quick-facts wrap py-6 border-y border-border">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 divide-y sm:divide-y-0 sm:divide-x sm:divide-x-reverse divide-border">
+        <section className="quick-facts wrap py-4 sm:py-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 lg:gap-6">
             {data.content.benefits.map((benefit, i) => (
-              <div key={i} className="flex items-center gap-3.5 pt-4 sm:pt-0 sm:px-6">
+              <div
+                key={i}
+                className="flex items-center gap-3.5 p-4 sm:p-5 rounded-2xl bg-surface-soft/60 border border-border/40 shadow-xs hover:bg-surface hover:shadow-sm transition-all duration-200"
+              >
                 <span className="text-xs font-bold text-accent font-mono tracking-wider">0{i + 1}</span>
                 <b className="text-sm font-bold text-ink">{text(benefit, locale)}</b>
               </div>
@@ -324,7 +327,7 @@ export function StorePage({ kind }: { kind: PageKind }) {
         </section>
 
         {/* Uses Section */}
-        <section className="section uses-section py-16 sm:py-20 bg-surface-soft/60 border-y border-border">
+        <section className="section uses-section py-16 sm:py-20 bg-surface-soft/40">
           <div className="wrap">
             <div className="section-heading flex items-end justify-between gap-4 mb-8">
               <div>

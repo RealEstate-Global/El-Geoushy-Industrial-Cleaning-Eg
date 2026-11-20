@@ -31,10 +31,10 @@
   --surface-tint: #e8f7ef;
   --surface-dark: #102d42;
 
-  --border: #e2e9ed;
-  --border-soft: #d7e8df;
-  --border-accent: #c8e6d4;
-  --border-muted: #d9d0df;
+  --border: rgb(23 43 58 / 0.08);
+  --border-soft: rgb(23 43 58 / 0.04);
+  --border-accent: rgb(22 119 184 / 0.15);
+  --border-muted: rgb(23 43 58 / 0.06);
 
   --focus-ring: #72b9d9;
   --selection-bg: #d7f0e1;
@@ -97,10 +97,10 @@ html[data-theme="dark"] {
   --surface-tint: #17364a;
   --surface-dark: #09141c;
 
-  --border: #2b4556;
-  --border-soft: #2d4c5d;
-  --border-accent: #2b566d;
-  --border-muted: #2b4556;
+  --border: rgb(255 255 255 / 0.08);
+  --border-soft: rgb(255 255 255 / 0.04);
+  --border-accent: rgb(83 181 232 / 0.18);
+  --border-muted: rgb(255 255 255 / 0.06);
 
   --selection-bg: #17364a;
   --selection-fg: #e7f0f6;
@@ -169,22 +169,6 @@ summary:focus-visible {
 /* ═══════════════════════════════════════════════════════════════════
    CORE COMPONENT UTILITIES (Theme Adaptive)
    ═══════════════════════════════════════════════════════════════════ */
-.topline {
-  background: var(--primary-dark);
-  color: var(--primary-light);
-}
-
-html[data-theme="dark"] .topline {
-  background: var(--surface-dark);
-  color: var(--ink-secondary);
-}
-
-.topline-dot {
-  width: 4px;
-  height: 4px;
-  border-radius: var(--radius-full);
-  background: var(--accent);
-}
 
 .wordmark-mark {
   width: 38px;

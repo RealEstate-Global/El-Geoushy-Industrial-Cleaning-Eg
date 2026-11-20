@@ -39,27 +39,23 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="store-shell min-h-screen flex flex-col" dir={locale === "ar" ? "rtl" : "ltr"}>
-      {/* Top Banner Bar */}
-      <div className="topline flex items-center justify-between text-xs py-1.5 px-4 sm:px-6 lg:px-8 border-b border-white/10">
-        <div className="flex items-center gap-2.5 mx-auto max-w-7xl w-full">
-          <span>{c.brandBy}</span>
-          <span className="topline-dot" />
-          <span>{h.madeInEgypt}</span>
-        </div>
-      </div>
-
       {/* Main Sticky Header */}
-      <header className="site-header sticky top-0 z-40 backdrop-blur-md bg-surface/95 border-b border-border shadow-xs transition-colors duration-200">
+      <header className="site-header sticky top-0 z-40 backdrop-blur-md bg-surface/95 border-b border-border/30 shadow-xs transition-colors duration-200">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 gap-4">
-          <Link href="/" className="wordmark flex items-center gap-3 group" aria-label="NEW CETRiS home">
-            <span className="wordmark-mark rounded-2xl flex items-center justify-center font-bold text-xl shadow-xs transition-transform duration-200 group-hover:scale-105">
-              C
+          <div className="flex items-center gap-3">
+            <Link href="/" className="wordmark flex items-center gap-3 group" aria-label="NEW CETRiS home">
+              <span className="wordmark-mark rounded-2xl flex items-center justify-center font-bold text-xl shadow-xs transition-transform duration-200 group-hover:scale-105">
+                C
+              </span>
+              <span className="leading-tight">
+                NEW <b className="text-primary font-extrabold tracking-wider">CETRiS</b>
+                <small className="block text-[9px] uppercase tracking-widest text-muted mt-0.5">EL-GIOUSHY</small>
+              </span>
+            </Link>
+            <span className="hidden lg:inline-flex items-center text-[10px] font-bold text-accent bg-accent/10 px-2.5 py-0.5 rounded-full border border-accent/20">
+              {h.madeInEgypt}
             </span>
-            <span className="leading-tight">
-              NEW <b className="text-primary font-extrabold tracking-wider">CETRiS</b>
-              <small className="block text-[9px] uppercase tracking-widest text-muted mt-0.5">EL-GIOUSHY</small>
-            </span>
-          </Link>
+          </div>
 
           <button
             className="icon-button mobile-menu p-2 rounded-2xl md:hidden text-ink hover:bg-surface-soft"
