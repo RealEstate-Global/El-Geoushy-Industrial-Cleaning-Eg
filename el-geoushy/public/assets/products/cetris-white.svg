@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 520" width="100%" height="100%">
+  <defs>
+    <!-- Background Glow -->
+    <radialGradient id="bg-glow-1" cx="50%" cy="55%" r="45%">
+      <stop offset="0%" stop-color="#e2f2fc" stop-opacity="0.4"/>
+      <stop offset="60%" stop-color="#e2f2fc" stop-opacity="0.1"/>
+      <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Liquid Gradient -->
+    <linearGradient id="liquid-grad-1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#e2f2fc" stop-opacity="0.88"/>
+      <stop offset="30%" stop-color="#c5e6f8" stop-opacity="0.78"/>
+      <stop offset="70%" stop-color="#e2f2fc" stop-opacity="0.92"/>
+      <stop offset="100%" stop-color="#c5e6f8" stop-opacity="0.82"/>
+    </linearGradient>
+
+    <!-- Bottle Body Glass Shine -->
+    <linearGradient id="glass-shine-1" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="15%" stop-color="#ffffff" stop-opacity="0.2"/>
+      <stop offset="40%" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="75%" stop-color="#ffffff" stop-opacity="0.1"/>
+      <stop offset="90%" stop-color="#ffffff" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.7"/>
+    </linearGradient>
+
+    <!-- Trigger Head Plastic Gradient -->
+    <linearGradient id="head-plastic-1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1e4970"/>
+      <stop offset="50%" stop-color="#123b5d"/>
+      <stop offset="100%" stop-color="#0a2238"/>
+    </linearGradient>
+
+    <!-- Label Gradient -->
+    <linearGradient id="label-bg-1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#f4f8fb"/>
+    </linearGradient>
+
+    <!-- Drop Shadow Filter -->
+    <filter id="bottle-shadow-1" x="-20%" y="-10%" width="140%" height="130%">
+      <feDropShadow dx="0" dy="16" stdDeviation="14" flood-color="#123b5d" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <!-- Ambient Glow -->
+  <circle cx="200" cy="300" r="180" fill="url(#bg-glow-1)" />
+
+  <!-- Ground Shadow -->
+  <ellipse cx="200" cy="495" rx="95" ry="12" fill="#123b5d" fill-opacity="0.16"/>
+  <ellipse cx="200" cy="495" rx="60" ry="7" fill="#123b5d" fill-opacity="0.2"/>
+
+  <g filter="url(#bottle-shadow-1)">
+    <!-- Liquid fill shape -->
+    <path d="M145,210 Q140,240 132,300 Q122,370 126,450 Q128,485 150,488 L250,488 Q272,485 274,450 Q278,370 268,300 Q260,240 255,210 Z"
+          fill="url(#liquid-grad-1)"/>
+
+    <!-- Translucent Bubbles inside liquid -->
+    <circle cx="160" cy="420" r="6" fill="#ffffff" fill-opacity="0.4"/>
+    <circle cx="235" cy="380" r="8" fill="#ffffff" fill-opacity="0.35"/>
+    <circle cx="185" cy="450" r="4" fill="#ffffff" fill-opacity="0.45"/>
+    <circle cx="210" cy="460" r="5" fill="#ffffff" fill-opacity="0.3"/>
+    <circle cx="150" cy="340" r="5" fill="#ffffff" fill-opacity="0.3"/>
+
+    <!-- Internal Suction Tube -->
+    <path d="M196,150 L196,480 Q196,486 215,486" stroke="#ffffff" stroke-width="4" stroke-opacity="0.6" fill="none" stroke-linecap="round"/>
+
+    <!-- Bottle Outer Plastic Shell -->
+    <path d="M176,145 L176,170 Q176,190 145,210 Q140,240 132,300 Q122,370 126,450 Q128,490 150,490 L250,490 Q272,490 274,450 Q278,370 268,300 Q260,190 224,170 L224,145 Z"
+          fill="url(#glass-shine-1)" stroke="#d3e6f2" stroke-width="1.5"/>
+
+    <!-- Volume Measurement Marks on left edge -->
+    <line x1="138" y1="260" x2="146" y2="260" stroke="#1677b8" stroke-width="1.5" stroke-opacity="0.8"/>
+    <text x="150" y="263" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1677b8" fill-opacity="0.9">1000ml</text>
+
+    <line x1="134" y1="310" x2="142" y2="310" stroke="#1677b8" stroke-width="1.5" stroke-opacity="0.8"/>
+    <text x="146" y="313" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1677b8" fill-opacity="0.9">800ml</text>
+
+    <line x1="130" y1="360" x2="138" y2="360" stroke="#1677b8" stroke-width="1.5" stroke-opacity="0.8"/>
+    <text x="142" y="363" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1677b8" fill-opacity="0.9">600ml</text>
+
+    <line x1="128" y1="410" x2="136" y2="410" stroke="#1677b8" stroke-width="1.5" stroke-opacity="0.8"/>
+    <text x="140" y="413" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1677b8" fill-opacity="0.9">400ml</text>
+
+    <!-- Specular Highlight Strip (Left) -->
+    <path d="M140,225 Q135,260 132,320 Q128,380 132,450" stroke="#ffffff" stroke-width="4" stroke-linecap="round" stroke-opacity="0.6" fill="none"/>
+    <!-- Specular Highlight Strip (Right) -->
+    <path d="M262,225 Q267,260 268,320 Q270,380 268,450" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round" stroke-opacity="0.5" fill="none"/>
+
+    <!-- FRONT BOTTLE LABEL -->
+    <g transform="translate(142, 255)">
+      <!-- Label Base Card -->
+      <rect width="116" height="175" rx="12" fill="url(#label-bg-1)" stroke="#cce2ee" stroke-width="1"/>
+
+      <!-- Top Accent Ribbon -->
+      <path d="M0,12 Q0,0 12,0 L104,0 Q116,0 116,12 L116,28 L0,28 Z" fill="#1677b8"/>
+      <text x="58" y="18" font-family="sans-serif" font-size="8" font-weight="800" fill="#ffffff" text-anchor="middle" letter-spacing="1">ORIGINAL FORMULA</text>
+
+      <!-- Brand Logo Drop -->
+      <g transform="translate(58, 52)">
+        <circle cx="0" cy="0" r="16" fill="#e8f7ef" stroke="#c8e6d4" stroke-width="1"/>
+        <text x="0" y="6" font-family="Georgia, serif" font-size="18" font-weight="bold" fill="#1677b8" text-anchor="middle">C</text>
+      </g>
+
+      <!-- Product Name -->
+      <text x="58" y="82" font-family="sans-serif" font-size="14" font-weight="900" fill="#123b5d" text-anchor="middle" letter-spacing="0.5">NEW CETRiS</text>
+      <text x="58" y="94" font-family="sans-serif" font-size="8" font-weight="bold" fill="#1677b8" text-anchor="middle" letter-spacing="1">نيو سيتريس</text>
+
+      <!-- Separator Line -->
+      <line x1="20" y1="102" x2="96" y2="102" stroke="#e2e9ed" stroke-width="1"/>
+
+      <!-- Badge Description -->
+      <text x="58" y="116" font-family="sans-serif" font-size="7.5" font-weight="700" fill="#657482" text-anchor="middle">MULTI-PURPOSE CLEANER</text>
+      <text x="58" y="126" font-family="sans-serif" font-size="7" font-weight="600" fill="#657482" text-anchor="middle">منظف متعدد الاستخدامات</text>
+
+      <!-- 1 LITER Capacity Badge -->
+      <rect x="22" y="136" width="72" height="18" rx="9" fill="#123b5d"/>
+      <text x="58" y="148" font-family="sans-serif" font-size="9" font-weight="800" fill="#8ed7ae" text-anchor="middle" letter-spacing="0.5">1 LITER · 1 لتر</text>
+
+      <!-- El-Gioushy Footer -->
+      <text x="58" y="166" font-family="sans-serif" font-size="6.5" font-weight="700" fill="#8e8793" text-anchor="middle" letter-spacing="0.5">EL-GIOUSHY INDUSTRIAL</text>
+    </g>
+
+    <!-- Bottle Neck Ribbing & Screw Collar -->
+    <rect x="174" y="140" width="52" height="7" rx="2" fill="#d2e4f0" stroke="#b5d1e4" stroke-width="0.5"/>
+    <rect x="172" y="132" width="56" height="9" rx="2.5" fill="#e2eff7" stroke="#b5d1e4" stroke-width="0.5"/>
+    <rect x="170" y="122" width="60" height="11" rx="3" fill="#123b5d"/>
+
+    <!-- TRIGGER SPRAY HEAD -->
+    <!-- Trigger Gun Body -->
+    <path d="M172,122 L172,95 Q172,80 185,75 L245,68 Q260,66 265,78 L265,95 Q265,108 248,112 L228,116 L228,122 Z"
+          fill="url(#head-plastic-1)" stroke="#1677b8" stroke-width="1"/>
+
+    <!-- Nozzle Barrel (Left pointing spray) -->
+    <path d="M180,82 L130,85 Q125,85 125,92 L125,98 Q125,105 130,105 L175,102 Z"
+          fill="url(#head-plastic-1)"/>
+    <!-- Nozzle Tip (Front spray dial) -->
+    <rect x="116" y="86" width="12" height="20" rx="3" fill="#1677b8"/>
+    <path d="M116,92 L110,93 L110,99 L116,100 Z" fill="#ffffff"/>
+    <line x1="122" y1="88" x2="122" y2="104" stroke="#ffffff" stroke-width="1" stroke-opacity="0.6"/>
+
+    <!-- Ergonomic Trigger Lever -->
+    <path d="M165,105 Q158,120 152,145 Q150,158 158,162 Q164,162 168,150 Q174,130 182,112 Z"
+          fill="#1677b8" stroke="#0a2238" stroke-width="1"/>
+
+    <!-- Trigger Guard/Finger Rest -->
+    <path d="M190,115 Q195,140 188,165" stroke="#123b5d" stroke-width="3" stroke-linecap="round" fill="none"/>
+
+    <!-- Head Top Cap / Contour -->
+    <path d="M188,75 Q215,64 246,67 Q258,69 258,76 L182,83 Z" fill="#1e5b8d"/>
+
+    <!-- SPRAY MIST EFFECT (Left) -->
+    <g opacity="0.75">
+      <circle cx="95" cy="94" r="3.5" fill="#1677b8" opacity="0.7"/>
+      <circle cx="80" cy="90" r="2.5" fill="#8ed7ae" opacity="0.6"/>
+      <circle cx="75" cy="102" r="3" fill="#1677b8" opacity="0.5"/>
+      <circle cx="60" cy="95" r="2" fill="#ffffff" opacity="0.8"/>
+      <circle cx="50" cy="86" r="3.5" fill="#1677b8" opacity="0.4"/>
+      <circle cx="42" cy="104" r="2.5" fill="#8ed7ae" opacity="0.4"/>
+      <circle cx="30" cy="96" r="4" fill="#1677b8" opacity="0.3"/>
+      <!-- Sparkle -->
+      <path d="M65,75 L67,80 L72,82 L67,84 L65,89 L63,84 L58,82 L63,80 Z" fill="#8ed7ae" opacity="0.85"/>
+    </g>
+  </g>
+</svg>
