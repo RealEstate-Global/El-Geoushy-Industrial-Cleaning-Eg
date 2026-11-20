@@ -1,7 +1,22 @@
 import type { Metadata } from "next";
+import { Cairo, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import { DemoProvider } from "@/features/site/components/DemoProvider";
 import { StoreShell } from "@/features/site/components/StoreShell";
+
+const cairo = Cairo({
+  subsets: ["arabic", "latin"],
+  variable: "--font-cairo",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
+
+const jakarta = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  variable: "--font-jakarta",
+  display: "swap",
+  weight: ["400", "500", "600", "700", "800"],
+});
 
 export const metadata: Metadata = {
   title: "NEW CETRiS | منظف متعدد الاستخدامات",
@@ -16,7 +31,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="ar" dir="rtl" suppressHydrationWarning>
+    <html lang="ar" dir="rtl" suppressHydrationWarning className={`${cairo.variable} ${jakarta.variable}`}>
       <head>
         <script
           dangerouslySetInnerHTML={{

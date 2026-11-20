@@ -40,7 +40,11 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
   if (pathname.startsWith("/admin")) return <div dir="ltr">{children}</div>;
 
   return (
-    <div className="store-shell min-h-screen flex flex-col" dir={locale === "ar" ? "rtl" : "ltr"}>
+    <div
+      className="store-shell min-h-screen flex flex-col"
+      dir={locale === "ar" ? "rtl" : "ltr"}
+      style={{ fontFamily: locale === "ar" ? "var(--font-ar)" : "var(--font-latin)" }}
+    >
       {/* Main Sticky Header (Soft blur, clean borderless elevation) */}
       <header className="site-header sticky top-0 z-40 backdrop-blur-md bg-surface/95 shadow-xs transition-colors duration-200">
         <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 gap-4">

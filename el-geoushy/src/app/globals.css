@@ -6,9 +6,9 @@
 :root {
   color-scheme: light;
 
-  /* ── Typography ──────────────────────────────────────────────── */
-  --font-ar: "Noto Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif;
-  --font-latin: Inter, Arial, sans-serif;
+  /* ── Typography (Egyptian Cultural & Global Identity) ────────── */
+  --font-ar: var(--font-cairo), "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, sans-serif;
+  --font-latin: var(--font-jakarta), "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* ── Core Palette ────────────────────────────────────────────── */
   --ink: #172b3a;
@@ -127,6 +127,19 @@ body {
   font-family: var(--font-ar);
   font-size: 16px;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+/* Locale-aware dynamic typography binding */
+[dir="rtl"], :lang(ar) {
+  font-family: var(--font-ar);
+  letter-spacing: normal;
+}
+
+[dir="ltr"], :lang(en) {
+  font-family: var(--font-latin);
 }
 
 button, input, textarea { font: inherit; }
