@@ -9,7 +9,6 @@
   /* ── Typography (Egyptian Cultural & Global Identity) ────────── */
   --font-ar: var(--font-cairo), "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, sans-serif;
   --font-latin: var(--font-jakarta), "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-current: var(--font-ar);
 
   /* ── Core Palette ────────────────────────────────────────────── */
   --ink: #172b3a;
@@ -76,14 +75,6 @@
   --container-wide: 1240px;
 }
 
-:root:lang(en) {
-  --font-current: var(--font-latin);
-}
-
-:root:lang(ar) {
-  --font-current: var(--font-ar);
-}
-
 html[data-theme="dark"] {
   color-scheme: dark;
 
@@ -133,7 +124,6 @@ body {
   margin: 0;
   background: var(--surface);
   color: var(--ink);
-  font-family: var(--font-current);
   font-size: 16px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
@@ -141,7 +131,7 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Apply the matching font to each language subtree, including the admin shell. */
+/* One font rule per language; nested lang attributes (for example admin) override safely. */
 :lang(ar) {
   font-family: var(--font-ar);
   letter-spacing: normal;
