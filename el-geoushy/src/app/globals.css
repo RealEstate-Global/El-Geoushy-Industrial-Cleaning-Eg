@@ -84,14 +84,6 @@
   --font-current: var(--font-ar);
 }
 
-:root:lang(en) {
-  --font-current: var(--font-latin);
-}
-
-:root:lang(ar) {
-  --font-current: var(--font-ar);
-}
-
 html[data-theme="dark"] {
   color-scheme: dark;
 
@@ -149,13 +141,13 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Locale-aware dynamic typography binding */
-[dir="rtl"], :lang(ar) {
+/* Apply the matching font to each language subtree, including the admin shell. */
+:lang(ar) {
   font-family: var(--font-ar);
   letter-spacing: normal;
 }
 
-[dir="ltr"], :lang(en) {
+:lang(en) {
   font-family: var(--font-latin);
 }
 
