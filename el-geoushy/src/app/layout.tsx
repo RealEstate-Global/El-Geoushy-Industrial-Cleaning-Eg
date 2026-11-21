@@ -36,7 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <script
           dangerouslySetInnerHTML={{
             __html:
-              'try{var t=localStorage.getItem("new-cetris-theme");document.documentElement.dataset.theme=t==="light"||t==="dark"?t:(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")}catch(e){document.documentElement.dataset.theme="light"}',
+              'try{var r=document.documentElement,t=localStorage.getItem("new-cetris-theme"),l=localStorage.getItem("new-cetris-locale");r.dataset.theme=t==="light"||t==="dark"?t:(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");if(l==="ar"||l==="en"){r.lang=l;r.dir=l==="ar"?"rtl":"ltr"}}catch(e){document.documentElement.dataset.theme="light"}',
           }}
         />
       </head>
