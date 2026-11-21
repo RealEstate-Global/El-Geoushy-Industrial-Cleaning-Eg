@@ -37,7 +37,7 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
       data.settings.whatsappNumberNeedsVerification,
     ) || getWhatsAppChatUrl(data.settings.whatsappNumber || "+0201016264326");
 
-  if (pathname.startsWith("/admin")) return <div dir="ltr">{children}</div>;
+  if (pathname.startsWith("/admin")) return <div dir="ltr" lang="en">{children}</div>;
 
   return (
     <div
