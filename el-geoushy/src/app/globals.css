@@ -8,7 +8,7 @@
 
   /* ── Typography (Egyptian Cultural & Global Identity) ────────── */
   --font-ar: var(--font-cairo), "Cairo", -apple-system, BlinkMacSystemFont, "Segoe UI", Tahoma, sans-serif;
-  --font-latin: var(--font-jakarta), "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-latin: var(--font-jakarta), "Plus Jakarta Sans", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;\n  --font-current: var(--font-ar);
 
   /* ── Core Palette ────────────────────────────────────────────── */
   --ink: #172b3a;
@@ -75,7 +75,7 @@
   --container-wide: 1240px;
 }
 
-html[data-theme="dark"] {
+:root:lang(en) {\n  --font-current: var(--font-latin);\n}\n\n:root:lang(ar) {\n  --font-current: var(--font-ar);\n}\n\nhtml[data-theme="dark"] {
   color-scheme: dark;
 
   --ink: #e7f0f6;
@@ -142,7 +142,7 @@ body {
   font-family: var(--font-latin);
 }
 
-button, input, textarea { font: inherit; }
+button, input, select, textarea {\n  font: inherit;\n}\n\ninput, select, textarea {\n  color: inherit;\n}\n\nselect, option, optgroup {\n  font-family: inherit;\n}
 button, a { -webkit-tap-highlight-color: transparent; }
 a { color: inherit; text-decoration: none; }
 button { color: inherit; }
