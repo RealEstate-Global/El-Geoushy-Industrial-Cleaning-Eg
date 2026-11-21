@@ -37,13 +37,13 @@ export function StoreShell({ children }: { children: React.ReactNode }) {
       data.settings.whatsappNumberNeedsVerification,
     ) || getWhatsAppChatUrl(data.settings.whatsappNumber || "+0201016264326");
 
-  if (pathname.startsWith("/admin")) return <div dir="ltr">{children}</div>;
+  if (pathname.startsWith("/admin")) return <div dir="ltr" lang="en">{children}</div>;
 
   return (
     <div
       className="store-shell min-h-screen flex flex-col"
       dir={locale === "ar" ? "rtl" : "ltr"}
-      style={{ fontFamily: locale === "ar" ? "var(--font-ar)" : "var(--font-latin)" }}
+      lang={locale}
     >
       {/* Main Sticky Header (Soft blur, clean borderless elevation) */}
       <header className="site-header sticky top-0 z-40 backdrop-blur-md bg-surface/95 shadow-xs transition-colors duration-200">
