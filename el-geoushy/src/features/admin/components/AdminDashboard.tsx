@@ -981,7 +981,7 @@ export function AdminDashboard() {
           </span>
           <span className="leading-tight">
             <span className="font-extrabold text-[var(--ink)] text-sm">
-              NEW <b className="text-[var(--primary)] font-black">CETRiS</b>
+              NEW <b className="text-[var(--primary)] font-extrabold">CETRiS</b>
             </span>
             <small className="block text-[9px] font-bold tracking-widest text-[var(--ink-secondary)] opacity-70 uppercase">
               DEMO CONSOLE
